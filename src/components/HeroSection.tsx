@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import dancerHero from "@/assets/dancer-hero.png";
+import dancerIcon from "@/assets/dancer-icon.svg";
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -55,20 +56,20 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator - Dancer Icon */}
       <motion.div 
         className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
       >
-        <motion.div 
-          className="w-5 h-8 md:w-6 md:h-10 border-2 border-foreground/30 rounded-full flex items-start justify-center p-1.5 md:p-2"
-          animate={{ y: [0, 5, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5 }}
-        >
-          <div className="w-1 h-1.5 md:h-2 bg-foreground/50 rounded-full" />
-        </motion.div>
+        <motion.img 
+          src={dancerIcon}
+          alt="גלול למטה"
+          className="w-8 h-10 md:w-10 md:h-12 opacity-50"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+        />
       </motion.div>
     </section>
   );
