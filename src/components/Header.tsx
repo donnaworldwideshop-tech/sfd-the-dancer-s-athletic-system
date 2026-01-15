@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import sfdLogo from "@/assets/sfd-header-logo.svg";
-import { User, Menu, X } from "lucide-react";
+import { User, Menu, X, ShoppingBag, Search } from "lucide-react";
 import { useState } from "react";
 
 const Header = () => {
@@ -16,13 +16,56 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 right-0 left-0 z-50 py-4 sm:py-6 px-4 sm:px-6 md:px-12 bg-background/90 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 right-0 left-0 z-50 py-3 sm:py-4 md:py-6 px-4 sm:px-6 md:px-12 bg-background/90 backdrop-blur-md border-b border-border">
       <nav className="flex items-center justify-between max-w-6xl mx-auto">
-        <Link to="/" onClick={() => setIsMenuOpen(false)}>
+        
+        {/* Mobile Layout */}
+        <div className="flex md:hidden items-center justify-between w-full">
+          {/* Left Icons - Shopping & User */}
+          <div className="flex items-center gap-3">
+            <Link to="/product" aria-label="ערכת האימון">
+              <ShoppingBag className="w-5 h-5 text-foreground/70" />
+            </Link>
+            <Link to={user ? "/members" : "/auth"} aria-label={user ? 'אזור אישי' : 'כניסה'}>
+              <User className="w-5 h-5 text-foreground/70" />
+            </Link>
+          </div>
+          
+          {/* Center Logo */}
+          <Link to="/" onClick={() => setIsMenuOpen(false)} className="absolute left-1/2 -translate-x-1/2">
+            <img 
+              src={sfdLogo} 
+              alt="SFD - Strength For Dancers" 
+              className="h-5"
+              style={{ width: 'auto' }}
+            />
+          </Link>
+          
+          {/* Right Icons - Search & Menu */}
+          <div className="flex items-center gap-3">
+            <button aria-label="חיפוש" className="p-1">
+              <Search className="w-5 h-5 text-foreground/70" />
+            </button>
+            <button 
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? "סגור תפריט" : "פתח תפריט"}
+              className="p-1"
+            >
+              {isMenuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Desktop Layout */}
+        <Link to="/" className="hidden md:block" onClick={() => setIsMenuOpen(false)}>
           <img 
             src={sfdLogo} 
             alt="SFD - Strength For Dancers" 
-            className="h-4 sm:h-5 md:h-6"
+            className="h-5 md:h-6"
             style={{ width: 'auto', minWidth: '100px' }}
           />
         </Link>
@@ -61,19 +104,6 @@ const Header = () => {
             <span>{user ? 'אזור אישי' : 'כניסה'}</span>
           </Link>
         </div>
-
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden p-2 -ml-2"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label={isMenuOpen ? "סגור תפריט" : "פתח תפריט"}
-        >
-          {isMenuOpen ? (
-            <X className="w-5 h-5" />
-          ) : (
-            <Menu className="w-5 h-5" />
-          )}
-        </button>
       </nav>
 
       {/* Mobile Menu */}
