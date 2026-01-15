@@ -4,6 +4,7 @@ import GapSection from "@/components/GapSection";
 import MethodSection from "@/components/MethodSection";
 import ApplicationSection from "@/components/ApplicationSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import StudiosSection from "@/components/StudiosSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
@@ -17,6 +18,7 @@ const Index = () => {
         <MethodSection />
         <ApplicationSection />
         <TestimonialsSection />
+        <StudiosSection />
         <CTASection />
       </main>
       <Footer />
