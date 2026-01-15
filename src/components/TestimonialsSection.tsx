@@ -96,11 +96,11 @@ const TestimonialsSection = () => {
             >
               <div className="flex flex-col lg:flex-row">
                 {/* Image */}
-                <div className="lg:w-2/5 aspect-square relative overflow-hidden">
+                <div className="lg:w-2/5 aspect-[3/4] relative overflow-hidden">
                   <img 
                     src={testimonial.image} 
                     alt={testimonial.name}
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-center"
                   />
                 </div>
                 
@@ -142,11 +142,11 @@ const TestimonialsSection = () => {
             transition={{ duration: 0.3 }}
           >
             {/* Image */}
-            <div className="aspect-square relative overflow-hidden">
+            <div className="aspect-[3/4] relative overflow-hidden">
               <img 
                 src={testimonials[activeIndex].image} 
                 alt={testimonials[activeIndex].name}
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-center"
               />
             </div>
             
