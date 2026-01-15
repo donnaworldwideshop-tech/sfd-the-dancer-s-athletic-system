@@ -142,7 +142,7 @@ const TestimonialsSection = () => {
             transition={{ duration: 0.3 }}
           >
             {/* Image */}
-            <div className="aspect-square relative overflow-hidden">
+            <div className="aspect-[4/3] relative overflow-hidden">
               <img 
                 src={testimonials[activeIndex].image} 
                 alt={testimonials[activeIndex].name}
