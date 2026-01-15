@@ -78,12 +78,12 @@ const About = () => {
         <section className="section-container mb-20">
           <div className="grid md:grid-cols-2 gap-16">
             <div>
-              <h2 className="text-section-title mb-6">שחר פרידמן</h2>
+              <h2 className="text-section-title mb-6">שחר מיטרה</h2>
               <p className="text-caption">מפתחת השיטה</p>
             </div>
             <div className="space-y-6 text-body" style={{ color: 'hsl(var(--text-secondary))' }}>
               <p>
-                שחר פרידמן פיתחה את שיטת SFD מתוך עבודה מעשית עם רקדנים
+                שחר מיטרה פיתחה את שיטת SFD מתוך עבודה מעשית עם רקדנים
                 ומתוך הבנת הפער בין עולם האימון לעולם הריקוד.
               </p>
               <p>
