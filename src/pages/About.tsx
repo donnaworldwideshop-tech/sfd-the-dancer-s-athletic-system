@@ -42,11 +42,11 @@ const About = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <p className="text-caption mb-3 sm:mb-4">אודות</p>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 sm:mb-6">
+              <p className="text-xs sm:text-sm uppercase tracking-widest mb-2 sm:mb-3" style={{ color: 'hsl(var(--text-muted))' }}>אודות</p>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-3 sm:mb-4">
                 שחר מיטרה
               </h1>
-              <p className="text-base sm:text-lg md:text-xl font-light leading-relaxed" style={{ color: 'hsl(var(--text-secondary))' }}>
+              <p className="text-lg sm:text-xl md:text-2xl font-light leading-relaxed" style={{ color: 'hsl(var(--text-secondary))' }}>
                 רקדנית מקצועית ומאמנת כוח לרקדנים.
               </p>
             </motion.div>
