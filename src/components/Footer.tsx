@@ -14,7 +14,7 @@ const Footer = () => {
           <div className="sm:col-span-2">
             <img 
               src={sfdLogo} 
-              alt="SFD – Strength For Dancers" 
+              alt="SFD - Strength For Dancers" 
               className="h-6 sm:h-7 md:h-8 w-auto mb-4 md:mb-6 invert"
             />
             <p className="text-primary-foreground/70 text-sm sm:text-base leading-relaxed max-w-md">
@@ -86,7 +86,7 @@ const Footer = () => {
         <div className="pt-6 md:pt-8 border-t border-primary-foreground/10">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
             <p className="text-xs sm:text-sm text-primary-foreground/50 text-center sm:text-right">
-              © {currentYear} SFD – Strength For Dancers. כל הזכויות שמורות.
+              © {currentYear} SFD - Strength For Dancers. כל הזכויות שמורות.
             </p>
             <div className="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm text-primary-foreground/50">
               <Link to="/terms" className="hover:text-primary-foreground/70 transition-colors">

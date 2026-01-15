@@ -19,7 +19,7 @@ const Product = () => {
                 SFD Training Kit
               </h1>
               <p className="text-body-large opacity-0 fade-in-up stagger-2" style={{ color: 'hsl(var(--text-secondary))' }}>
-                כלי עבודה מקצועי ליישום שיטת SFD –
+                כלי עבודה מקצועי ליישום שיטת SFD -
                 <br />
                 אימון כוח ייעודי לרקדנים.
               </p>
@@ -96,7 +96,7 @@ const Product = () => {
             <h2 className="text-section-title mb-6">איך עובדים עם הערכה</h2>
             <div className="space-y-6 text-body" style={{ color: 'hsl(var(--text-secondary))' }}>
               <p>
-                ערכת האימון נועדה לשילוב לצד שיעורי הריקוד – לא במקומם.
+                ערכת האימון נועדה לשילוב לצד שיעורי הריקוד - לא במקומם.
                 התוכנית מאפשרת עבודה עצמאית, שבועית, בקצב שמתאים לך.
               </p>
               <p>
@@ -105,7 +105,7 @@ const Product = () => {
                 התוכנית המובנית מארגנת את העבודה לאורך השבוע.
               </p>
               <p>
-                אין צורך בידע מוקדם באימון כוח –
+                אין צורך בידע מוקדם באימון כוח -
                 ההנחיות מפורטות ומאפשרות עבודה עצמאית מהיום הראשון.
               </p>
             </div>
