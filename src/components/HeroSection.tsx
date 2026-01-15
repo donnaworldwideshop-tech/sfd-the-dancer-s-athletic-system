@@ -45,7 +45,7 @@ const HeroSection = () => {
             רקדן הוא ספורטאי.
           </motion.h1>
           <motion.p 
-            className="text-base sm:text-lg md:text-xl font-light leading-relaxed max-w-md mx-auto md:mx-0"
+            className="text-base sm:text-lg md:text-xl font-light leading-relaxed max-w-md mx-auto"
             style={{ color: 'hsl(var(--text-secondary))' }}
             initial={{ opacity: 0, y: 30 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}

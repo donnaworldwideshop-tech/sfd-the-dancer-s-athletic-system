@@ -30,7 +30,7 @@ const StudiosSection = () => {
         </motion.div>
 
         <motion.div 
-          className="flex items-center justify-center gap-4 sm:gap-8 md:gap-12 lg:gap-16 overflow-x-auto"
+          className="flex items-center justify-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 flex-nowrap"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -46,7 +46,7 @@ const StudiosSection = () => {
               <img
                 src={studio.logo}
                 alt={studio.name}
-                className="h-10 sm:h-16 md:h-20 lg:h-24 w-auto object-contain transition-all duration-300 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 flex-shrink-0"
+                className="h-8 sm:h-12 md:h-16 lg:h-20 w-auto max-w-[70px] sm:max-w-[100px] md:max-w-none object-contain transition-all duration-300 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 flex-shrink-0"
               />
             </motion.div>
           ))}
