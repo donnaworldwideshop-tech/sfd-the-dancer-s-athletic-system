@@ -1,12 +1,43 @@
 {
   "sections": {
-    "main": {
-      "type": "main-page",
+    "product-details": {
+      "type": "product-details",
       "settings": {
-      }
+        "category": "ערכת האימון",
+        "product_name": "SFD Training Kit",
+        "product_description": "כלי עבודה מקצועי ליישום שיטת SFD - אימון כוח ייעודי לרקדנים.",
+        "price": "₪450",
+        "price_note": "כולל מע\"מ ומשלוח",
+        "cta_button_text": "לרכישת הערכה",
+        "cta_alert_message": "מערכת התשלום תחובר בקרוב",
+        "purchase_note": "לאחר הרכישה תקבלו גישה מיידית לתכנים הדיגיטליים. הציוד הפיזי יישלח תוך 3-5 ימי עסקים.",
+        "features_heading": "מה כוללת הערכה",
+        "how_it_works_heading": "איך עובדים עם הערכה",
+        "target_audience_heading": "למי הערכה מתאימה"
+      },
+      "blocks": {
+        "feature-1": {
+          "type": "feature",
+          "settings": {
+            "title": "ציוד פיזי",
+            "description": "ציוד אימון ייעודי שנבחר במיוחד לעבודה לפי שיטת SFD. הציוד מאפשר ביצוע מדויק של התרגילים בכל סביבה."
+          }
+        },
+        "feature-2": {
+          "type": "feature",
+          "settings": {
+            "title": "גישה דיגיטלית",
+            "description": "גישה מיידית לסרטוני הדגמה, תוכנית אימון מובנית, והנחיות מפורטות לביצוע נכון של כל תרגיל."
+          }
+        }
+      },
+      "block_order": [
+        "feature-1",
+        "feature-2"
+      ]
     }
   },
   "order": [
-    "main"
+    "product-details"
   ]
 }

@@ -116,7 +116,17 @@
       const emailInput = this.querySelector('input[type="email"]');
       if (emailInput && !validateEmail(emailInput.value)) {
         e.preventDefault();
-        alert('נא להזין כתובת אימייל תקינה');
+        // Show error message in a user-friendly way
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'form-error';
+        errorDiv.style.cssText = 'color: var(--color-destructive); margin-top: 0.5rem; font-size: 0.875rem;';
+        errorDiv.textContent = 'נא להזין כתובת אימייל תקינה';
+        
+        // Remove existing error if any
+        const existingError = emailInput.parentNode.querySelector('.form-error');
+        if (existingError) existingError.remove();
+        
+        emailInput.parentNode.appendChild(errorDiv);
         emailInput.focus();
       }
     });
