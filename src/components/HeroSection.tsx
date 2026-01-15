@@ -16,7 +16,7 @@ const HeroSection = () => {
           }`}
           style={{ transitionDelay: '0.1s' }}
         >
-          SFD – Strength For Dancers
+          SFD – STRENGTH FOR DANCERS
         </p>
         <h1 
           className={`text-hero-display mb-8 transition-all duration-700 ease-out ${
@@ -32,8 +32,7 @@ const HeroSection = () => {
           }`}
           style={{ transitionDelay: '0.3s', color: 'hsl(var(--text-secondary))' }}
         >
-          הגוף של הרקדן דורש אימון מקצועי.<br />
-          לא פחות מספורטאי עילית.
+          הגוף של הרקדן דורש אימון מקצועי.
         </p>
       </div>
     </section>

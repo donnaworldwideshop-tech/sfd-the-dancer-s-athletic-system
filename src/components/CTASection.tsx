@@ -4,15 +4,16 @@ const CTASection = () => {
       <div className="divider-line mb-16 md:mb-24" />
       
       <div className="max-w-2xl mx-auto text-center">
-        <p className="text-caption mb-6">התחלה</p>
+        <p className="text-caption mb-6">הצעד הראשון</p>
         <h2 className="text-section-title mb-8">
-          להתחיל לעבוד
+          רכישת ערכת האימון היא נקודת הכניסה לשיטת SFD.
         </h2>
         <p className="text-body mb-6" style={{ color: 'hsl(var(--text-secondary))' }}>
-          רכישת ערכת האימון היא הצעד הראשון. אחרי הרכישה תקבלו גישה מיידית למערכת, ותוכלו להתחיל להתאמן עוד היום.
+          לאחר הרכישה ניתן להתחיל להתאמן כבר מהיום הראשון.
         </p>
         <p className="text-body mb-12" style={{ color: 'hsl(var(--text-secondary))' }}>
-          יש שאלות לפני? אפשר לפנות אלינו ישירות.
+          יש שאלות לפני?<br />
+          אפשר לפנות אלינו ישירות.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

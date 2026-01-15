@@ -6,33 +6,28 @@ const MethodSection = () => {
       <div className="max-w-3xl">
         <p className="text-caption mb-6">הגישה</p>
         <h2 className="text-section-title mb-12">
-          SFD היא מערכת אימון מקצועית<br />
-          שתוכננה במיוחד לרקדנים.
+          SFD היא שיטת אימון כוח<br />
+          ייעודית לרקדנים.
         </h2>
         
         <p className="text-body mb-12" style={{ color: 'hsl(var(--text-secondary))' }}>
-          המערכת בנויה סביב שאלה אחת: איזה כוח צריך הרקדן כדי לעשות את מה שהוא כבר עושה – טוב יותר, ולאורך זמן.
+          השיטה מבוססת על עקרונות מקצועיים מעולם אימון הכוח,
+          ומתורגמת לצרכים הפיזיים והמבניים של גוף רקדן.
         </p>
         
         <div className="space-y-8">
           <div className="border-r-2 border-foreground/20 pr-6">
-            <h3 className="text-lg font-normal mb-2">כוח ספציפי לתנועה</h3>
+            <h3 className="text-lg font-normal mb-2">מותאמת לעולם הריקוד</h3>
             <p className="text-body" style={{ color: 'hsl(var(--text-secondary))' }}>
-              אנחנו לא בונים כוח כללי. אנחנו בונים כוח שמתורגם ישירות לביצוע – בזוויות הנכונות, בטווחים הנכונים.
+              לא כושר כללי, אלא עבודה שמבינה טכניקה, עומסים ותנועה.
             </p>
           </div>
           
           <div className="border-r-2 border-foreground/20 pr-6">
-            <h3 className="text-lg font-normal mb-2">עקביות לאורך זמן</h3>
+            <h3 className="text-lg font-normal mb-2">מתאימה לשלבי התפתחות שונים</h3>
             <p className="text-body" style={{ color: 'hsl(var(--text-secondary))' }}>
-              אימון כוח אמיתי דורש רצף. המערכת בנויה לשימוש יומיומי לצד שיעורי הריקוד – לא במקומם.
-            </p>
-          </div>
-          
-          <div className="border-r-2 border-foreground/20 pr-6">
-            <h3 className="text-lg font-normal mb-2">התאמה לשלב בקריירה</h3>
-            <p className="text-body" style={{ color: 'hsl(var(--text-secondary))' }}>
-              רקדן צעיר צריך לבנות בסיס. רקדן מקצועי צריך לתחזק ולמנוע שחיקה. כל שלב דורש תוכנית אחרת.
+              השיטה נבנתה כך שניתן לעבוד לפיה ברמות שונות –
+              מרקדנים צעירים ועד רקדנים פעילים ומתקדמים.
             </p>
           </div>
         </div>
