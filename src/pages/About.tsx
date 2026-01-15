@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import aboutVideo from "@/assets/about-video.mp4";
 
 const About = () => {
   return (
@@ -18,6 +19,20 @@ const About = () => {
             <p className="text-body-large opacity-0 fade-in-up stagger-2" style={{ color: 'hsl(var(--text-secondary))' }}>
               שיטה מקצועית לאימון כוח ייעודי לרקדנים.
             </p>
+          </div>
+        </section>
+
+        {/* Video Section */}
+        <section className="section-container mb-20">
+          <div className="aspect-video w-full max-w-4xl mx-auto rounded-sm overflow-hidden bg-card">
+            <video 
+              src={aboutVideo} 
+              controls 
+              className="w-full h-full object-cover"
+              poster=""
+            >
+              הדפדפן שלך לא תומך בתגית וידאו.
+            </video>
           </div>
         </section>
 
