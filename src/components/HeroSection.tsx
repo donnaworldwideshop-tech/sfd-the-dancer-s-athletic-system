@@ -17,17 +17,17 @@ const HeroSection = () => {
         <motion.img 
           src={dancerHero} 
           alt="Dancer" 
-          className="w-full h-full object-cover object-[20%_top] sm:object-[40%_center] md:object-center"
+          className="w-full h-full object-cover object-[20%_top] sm:object-[40%_center] md:object-[30%_center]"
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-l from-background via-background/80 md:via-background/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-l from-background via-background/90 md:via-background/80 to-background/20 md:to-transparent" />
       </div>
       
       {/* Content */}
-      <div className="section-container relative z-10 pt-20 md:pt-0">
-        <div className="max-w-xl mx-auto md:mx-0 md:mr-auto text-center md:text-right" dir="rtl">
+      <div className="section-container relative z-10 pt-20 md:pt-0 flex items-center justify-center md:justify-end">
+        <div className="max-w-xl text-center md:text-right md:pr-8 lg:pr-16" dir="rtl">
           <motion.p 
             className="text-caption mb-4 md:mb-8"
             initial={{ opacity: 0, y: 20 }}
