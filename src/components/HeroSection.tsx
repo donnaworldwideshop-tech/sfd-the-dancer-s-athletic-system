@@ -56,20 +56,24 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator - Dancer Icon */}
+      {/* Scroll Indicator - Dancer Icon in Circle */}
       <motion.div 
-        className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
       >
-        <motion.img 
-          src={dancerIcon}
-          alt="גלול למטה"
-          className="w-8 h-10 md:w-10 md:h-12 opacity-50"
+        <motion.div 
+          className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-primary flex items-center justify-center shadow-lg"
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-        />
+        >
+          <img 
+            src={dancerIcon}
+            alt="גלול למטה"
+            className="w-8 h-8 md:w-10 md:h-10 invert"
+          />
+        </motion.div>
       </motion.div>
     </section>
   );
