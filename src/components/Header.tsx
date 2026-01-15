@@ -21,7 +21,7 @@ const Header = () => {
         <Link to="/" onClick={() => setIsMenuOpen(false)}>
           <img 
             src={sfdLogo} 
-            alt="SFD – Strength For Dancers" 
+            alt="SFD - Strength For Dancers" 
             className="h-4 sm:h-5 md:h-6"
             style={{ width: 'auto', minWidth: '100px' }}
           />
