@@ -21,6 +21,12 @@ const Header = () => {
         </Link>
         <div className="flex items-center gap-6">
           <Link 
+            to="/about" 
+            className="text-sm font-normal text-foreground/70 hover:text-foreground transition-colors duration-300"
+          >
+            אודות
+          </Link>
+          <Link 
             to="/product" 
             className="text-sm font-normal text-foreground/70 hover:text-foreground transition-colors duration-300"
           >
