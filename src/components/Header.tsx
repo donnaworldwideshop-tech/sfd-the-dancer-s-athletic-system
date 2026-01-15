@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
-import sfdLogoBlack from "@/assets/sfd-logo-black.png";
+import sfdLogo from "@/assets/sfd-header-logo.svg";
 import { User } from "lucide-react";
 
 const Header = () => {
@@ -13,10 +13,10 @@ const Header = () => {
       <nav className="flex items-center justify-between max-w-6xl mx-auto">
         <Link to="/">
           <img 
-            src={sfdLogoBlack} 
+            src={sfdLogo} 
             alt="SFD – Strength For Dancers" 
-            className="h-6 md:h-8"
-            style={{ width: 'auto', minWidth: '120px' }}
+            className="h-5 md:h-6"
+            style={{ width: 'auto', minWidth: '140px' }}
           />
         </Link>
         <div className="flex items-center gap-6">
