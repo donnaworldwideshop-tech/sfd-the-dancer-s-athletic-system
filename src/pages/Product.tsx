@@ -116,23 +116,13 @@ const Product = () => {
 
         {/* Who Is It For */}
         <section className="section-container mb-20">
-          <div className="grid md:grid-cols-2 gap-16">
-            <div>
-              <h2 className="text-section-title mb-6">למי הערכה מתאימה</h2>
-              <div className="space-y-4 text-body" style={{ color: 'hsl(var(--text-secondary))' }}>
-                <p>• רקדנים שרוצים לבנות בסיס כוח מקצועי</p>
-                <p>• רקדנים מתקדמים שמחפשים לחזק ולייצב את הגוף</p>
-                <p>• רקדנים שחווים פציעות חוזרות או תחושת חוסר יציבות</p>
-                <p>• מורים לריקוד שמבקשים כלי עבודה לתלמידים</p>
-              </div>
-            </div>
-            <div>
-              <h2 className="text-section-title mb-6">למי הערכה לא מתאימה</h2>
-              <div className="space-y-4 text-body" style={{ color: 'hsl(var(--text-secondary))' }}>
-                <p>• מי שמחפש תוכנית אימון כושר כללית</p>
-                <p>• מי שמצפה לליווי אישי או אימון פרטי</p>
-                <p>• מי שזקוק לפיקוח רפואי או שיקומי</p>
-              </div>
+          <div className="max-w-3xl">
+            <h2 className="text-section-title mb-6">למי הערכה מתאימה</h2>
+            <div className="space-y-4 text-body" style={{ color: 'hsl(var(--text-secondary))' }}>
+              <p>• רקדנים שרוצים לבנות בסיס כוח מקצועי</p>
+              <p>• רקדנים מתקדמים שמחפשים לחזק ולייצב את הגוף</p>
+              <p>• רקדנים שחווים פציעות חוזרות או תחושת חוסר יציבות</p>
+              <p>• מורים לריקוד שמבקשים כלי עבודה לתלמידים</p>
             </div>
           </div>
         </section>
