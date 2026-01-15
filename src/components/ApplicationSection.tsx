@@ -5,20 +5,20 @@ const ApplicationSection = () => {
       
       <div className="grid md:grid-cols-2 gap-12 md:gap-24 items-start">
         <div>
-          <p className="text-caption mb-6">איך זה עובד</p>
+          <p className="text-caption mb-6">כלי העבודה</p>
           <h2 className="text-section-title mb-8">
-            ערכת אימון מותאמת אישית.
+            ערכת האימון היא נקודת הכניסה למערכת.
           </h2>
           <p className="text-body mb-8" style={{ color: 'hsl(var(--text-secondary))' }}>
-            כל רקדן מקבל ערכת אימון מותאמת שכוללת תוכנית מובנית, הדגמות וידאו, ומעקב התקדמות.
+            לא מוצר שקונים ושוכחים. ערכת האימון היא כלי עבודה יומיומי – תוכנית מובנית שמלווה את הרקדן לאורך השבוע, לצד שיעורי הריקוד.
           </p>
           <p className="text-body" style={{ color: 'hsl(var(--text-secondary))' }}>
-            הגישה לחומרים היא דיגיטלית ומלאה – אפשר להתאמן בכל מקום, בכל זמן, עם הנחיות ברורות ומדויקות.
+            הרכישה פותחת גישה מלאה למערכת: תוכנית אימון, הדגמות, ומעקב התקדמות. כל מה שצריך כדי להתחיל לעבוד.
           </p>
         </div>
         
         <div className="bg-card p-8 md:p-12">
-          <p className="text-caption mb-8">כולל</p>
+          <p className="text-caption mb-8">מה כולל</p>
           <ul className="space-y-4">
             <li className="text-body flex items-start gap-3">
               <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 flex-shrink-0" />
@@ -30,11 +30,11 @@ const ApplicationSection = () => {
             </li>
             <li className="text-body flex items-start gap-3">
               <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 flex-shrink-0" />
-              <span>מעקב התקדמות ומדדים</span>
+              <span>מעקב התקדמות אישי</span>
             </li>
             <li className="text-body flex items-start gap-3">
               <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 flex-shrink-0" />
-              <span>עדכונים והתאמות לפי התקדמות</span>
+              <span>עדכונים והתאמות שוטפות</span>
             </li>
             <li className="text-body flex items-start gap-3">
               <span className="w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 flex-shrink-0" />

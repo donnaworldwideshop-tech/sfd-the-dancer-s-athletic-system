@@ -10,25 +10,29 @@ const MethodSection = () => {
           שתוכננה במיוחד לרקדנים.
         </h2>
         
+        <p className="text-body mb-12" style={{ color: 'hsl(var(--text-secondary))' }}>
+          המערכת בנויה סביב שאלה אחת: איזה כוח צריך הרקדן כדי לעשות את מה שהוא כבר עושה – טוב יותר, ולאורך זמן.
+        </p>
+        
         <div className="space-y-8">
           <div className="border-r-2 border-foreground/20 pr-6">
-            <h3 className="text-lg font-normal mb-2">מבוססת על עקרונות מדע האימון</h3>
+            <h3 className="text-lg font-normal mb-2">כוח ספציפי לתנועה</h3>
             <p className="text-body" style={{ color: 'hsl(var(--text-secondary))' }}>
-              כל תוכנית בנויה על בסיס עקרונות פיזיולוגיים מוכחים, עם התאמה לעולם הריקוד.
+              אנחנו לא בונים כוח כללי. אנחנו בונים כוח שמתורגם ישירות לביצוע – בזוויות הנכונות, בטווחים הנכונים.
             </p>
           </div>
           
           <div className="border-r-2 border-foreground/20 pr-6">
-            <h3 className="text-lg font-normal mb-2">מותאמת לסגנונות ריקוד שונים</h3>
+            <h3 className="text-lg font-normal mb-2">עקביות לאורך זמן</h3>
             <p className="text-body" style={{ color: 'hsl(var(--text-secondary))' }}>
-              בלט, מודרני, עכשווי, היפ-הופ – לכל סגנון דרישות שונות. המערכת מתאימה את האימון בהתאם.
+              אימון כוח אמיתי דורש רצף. המערכת בנויה לשימוש יומיומי לצד שיעורי הריקוד – לא במקומם.
             </p>
           </div>
           
           <div className="border-r-2 border-foreground/20 pr-6">
-            <h3 className="text-lg font-normal mb-2">מתייחסת לכל שלבי ההתפתחות</h3>
+            <h3 className="text-lg font-normal mb-2">התאמה לשלב בקריירה</h3>
             <p className="text-body" style={{ color: 'hsl(var(--text-secondary))' }}>
-              מרקדנים צעירים ועד מקצוענים בקריירה מתקדמת – כל שלב דורש גישה אחרת.
+              רקדן צעיר צריך לבנות בסיס. רקדן מקצועי צריך לתחזק ולמנוע שחיקה. כל שלב דורש תוכנית אחרת.
             </p>
           </div>
         </div>
