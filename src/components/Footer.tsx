@@ -1,4 +1,4 @@
-import sfdLogo from "@/assets/sfd-logo-white.svg";
+import sfdLogoBlack from "@/assets/sfd-logo-black.png";
 
 const Footer = () => {
   return (
@@ -7,9 +7,9 @@ const Footer = () => {
       
       <div className="flex flex-col md:flex-row items-center justify-between gap-6">
         <img 
-          src={sfdLogo} 
+          src={sfdLogoBlack} 
           alt="SFD – Strength For Dancers" 
-          className="h-6 w-auto opacity-60"
+          className="h-5 w-auto opacity-60"
         />
         <p className="text-sm" style={{ color: 'hsl(var(--text-muted))' }}>
           © {new Date().getFullYear()} SFD – Strength For Dancers. כל הזכויות שמורות.

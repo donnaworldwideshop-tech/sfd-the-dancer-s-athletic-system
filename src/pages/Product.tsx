@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowRight } from "lucide-react";
+import productKit from "@/assets/product-kit.png";
 
 const Product = () => {
   return (
@@ -11,16 +12,25 @@ const Product = () => {
       <main className="pt-32 pb-24">
         {/* Hero Section */}
         <section className="section-container mb-20">
-          <div className="max-w-3xl">
-            <p className="text-caption mb-4 opacity-0 fade-in-up">ערכת האימון</p>
-            <h1 className="text-hero-display mb-8 opacity-0 fade-in-up stagger-1">
-              SFD Training Kit
-            </h1>
-            <p className="text-body-large opacity-0 fade-in-up stagger-2" style={{ color: 'hsl(var(--text-secondary))' }}>
-              כלי עבודה מקצועי ליישום שיטת SFD –
-              <br />
-              אימון כוח ייעודי לרקדנים.
-            </p>
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+              <p className="text-caption mb-4 opacity-0 fade-in-up">ערכת האימון</p>
+              <h1 className="text-hero-display mb-8 opacity-0 fade-in-up stagger-1">
+                SFD Training Kit
+              </h1>
+              <p className="text-body-large opacity-0 fade-in-up stagger-2" style={{ color: 'hsl(var(--text-secondary))' }}>
+                כלי עבודה מקצועי ליישום שיטת SFD –
+                <br />
+                אימון כוח ייעודי לרקדנים.
+              </p>
+            </div>
+            <div className="opacity-0 fade-in-up stagger-3">
+              <img 
+                src={productKit} 
+                alt="SFD Training Kit - ערכת האימון" 
+                className="w-full rounded-sm"
+              />
+            </div>
           </div>
         </section>
 

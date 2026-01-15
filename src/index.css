@@ -4,48 +4,86 @@
 
 @layer base {
   :root {
-    /* SFD Brand System - Dark, Professional, Minimal */
-    --background: 220 20% 6%;
-    --foreground: 0 0% 98%;
+    /* SFD Brand System - Based on brand colors: #000000, #555657, #fffaf3 */
+    --background: 40 33% 97%; /* #fffaf3 - cream/off-white */
+    --foreground: 0 0% 0%; /* #000000 - pure black */
 
-    --card: 220 18% 10%;
-    --card-foreground: 0 0% 98%;
+    --card: 40 20% 95%;
+    --card-foreground: 0 0% 0%;
 
-    --popover: 220 18% 10%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 40 20% 95%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 220 20% 6%;
+    --primary: 0 0% 0%; /* #000000 */
+    --primary-foreground: 40 33% 97%; /* #fffaf3 */
 
-    --secondary: 220 15% 15%;
-    --secondary-foreground: 0 0% 90%;
+    --secondary: 210 2% 34%; /* #555657 - gray */
+    --secondary-foreground: 40 33% 97%;
 
-    --muted: 220 15% 18%;
-    --muted-foreground: 220 10% 55%;
+    --muted: 40 15% 92%;
+    --muted-foreground: 210 2% 34%; /* #555657 */
 
-    --accent: 35 30% 50%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 210 2% 34%; /* #555657 */
+    --accent-foreground: 40 33% 97%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 40 33% 97%;
 
-    --border: 220 15% 20%;
-    --input: 220 15% 20%;
-    --ring: 0 0% 98%;
+    --border: 40 10% 85%;
+    --input: 40 10% 85%;
+    --ring: 0 0% 0%;
 
     --radius: 0.25rem;
 
     /* Custom brand tokens */
-    --text-hero: 0 0% 100%;
-    --text-secondary: 220 10% 70%;
-    --text-muted: 220 10% 50%;
-    --surface-elevated: 220 18% 12%;
-    --divider: 220 15% 25%;
+    --text-hero: 0 0% 0%;
+    --text-secondary: 210 2% 34%; /* #555657 */
+    --text-muted: 210 2% 45%;
+    --surface-elevated: 40 25% 94%;
+    --divider: 40 10% 80%;
+    
+    /* Brand specific */
+    --brand-black: 0 0% 0%;
+    --brand-gray: 210 2% 34%;
+    --brand-cream: 40 33% 97%;
   }
 
   .dark {
-    --background: 220 20% 6%;
-    --foreground: 0 0% 98%;
+    /* Dark mode - invert the scheme */
+    --background: 0 0% 0%; /* #000000 */
+    --foreground: 40 33% 97%; /* #fffaf3 */
+
+    --card: 0 0% 6%;
+    --card-foreground: 40 33% 97%;
+
+    --popover: 0 0% 6%;
+    --popover-foreground: 40 33% 97%;
+
+    --primary: 40 33% 97%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 210 2% 34%;
+    --secondary-foreground: 40 33% 97%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 210 2% 55%;
+
+    --accent: 210 2% 34%;
+    --accent-foreground: 40 33% 97%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 40 33% 97%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 40 33% 97%;
+
+    /* Custom brand tokens - dark mode */
+    --text-hero: 40 33% 97%;
+    --text-secondary: 210 2% 70%;
+    --text-muted: 210 2% 50%;
+    --surface-elevated: 0 0% 10%;
+    --divider: 0 0% 20%;
   }
 }
 
@@ -102,16 +140,16 @@
 
   .btn-primary {
     @apply inline-flex items-center justify-center px-8 py-4 
-           bg-foreground text-background font-normal text-base
+           bg-primary text-primary-foreground font-normal text-base
            transition-all duration-300 ease-out
            hover:bg-opacity-90;
   }
 
   .btn-outline {
     @apply inline-flex items-center justify-center px-8 py-4 
-           border border-foreground text-foreground font-normal text-base
+           border border-primary text-primary font-normal text-base
            transition-all duration-300 ease-out
-           hover:bg-foreground hover:text-background;
+           hover:bg-primary hover:text-primary-foreground;
   }
 }
 
