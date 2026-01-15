@@ -8,10 +8,10 @@ const ApplicationSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   const kitFeatures = [
-    { icon: Calendar, text: "תוכנית אימון מובנית לעבודה שבועית" },
-    { icon: Video, text: "סרטוני הדגמה לכל תרגיל" },
-    { icon: BookOpen, text: "הנחיות ברורות לביצוע מדויק" },
-    { icon: Smartphone, text: "גישה מלאה לתכנים מכל מכשיר" }
+    { icon: Calendar, text: "תוכנית אימון מובנית לעבודה שבועית", number: "01" },
+    { icon: Video, text: "סרטוני הדגמה לכל תרגיל", number: "02" },
+    { icon: BookOpen, text: "הנחיות ברורות לביצוע מדויק", number: "03" },
+    { icon: Smartphone, text: "גישה מלאה לתכנים מכל מכשיר", number: "04" }
   ];
 
   return (
@@ -59,34 +59,43 @@ const ApplicationSection = () => {
           </motion.div>
         </div>
 
-        {/* הערכה כוללת */}
-        <motion.div 
-          className="bg-card p-5 sm:p-6 md:p-8 lg:p-12 rounded-sm border border-border mb-12 md:mb-24"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <p className="text-caption mb-6 md:mb-8">הערכה כוללת</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        {/* הערכה כוללת - New Design */}
+        <div className="mb-16 md:mb-24">
+          <motion.div
+            className="mb-8 md:mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <p className="text-caption mb-3">הערכה כוללת</p>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-light">כל מה שצריך כדי להתחיל</h3>
+          </motion.div>
+          
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-border">
             {kitFeatures.map((feature, index) => (
               <motion.div 
                 key={index}
-                className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 bg-background rounded-sm"
+                className="bg-background p-5 sm:p-6 md:p-8 flex flex-col group hover:bg-primary/5 transition-colors"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
               >
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <feature.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                <span className="text-3xl sm:text-4xl md:text-5xl font-light text-primary/20 group-hover:text-primary/40 transition-colors mb-4 md:mb-6">
+                  {feature.number}
+                </span>
+                <div className="flex-1">
+                  <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary mb-3" />
+                  <p className="text-sm sm:text-base font-normal leading-relaxed">
+                    {feature.text}
+                  </p>
                 </div>
-                <span className="text-sm sm:text-base font-light leading-relaxed">{feature.text}</span>
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        {/* עבודה לאורך זמן והתאמה לשלב בקריירה */}
-        <div className="grid sm:grid-cols-2 gap-4 md:gap-8">
+        {/* עבודה לאורך זמן והתאמה לשלב בקריירה - New Design */}
+        <div className="grid md:grid-cols-2 gap-0 md:gap-px bg-transparent md:bg-primary overflow-hidden rounded-sm">
           {[
             {
               icon: Clock,
@@ -101,22 +110,16 @@ const ApplicationSection = () => {
           ].map((item, index) => (
             <motion.div 
               key={index}
-              className="p-5 sm:p-6 bg-card rounded-sm border border-border hover:border-primary/30 transition-colors"
+              className={`p-6 sm:p-8 md:p-10 lg:p-12 ${index === 0 ? 'bg-primary text-primary-foreground' : 'bg-card border border-border md:border-0'}`}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
             >
-              <div className="flex items-start gap-3 sm:gap-4">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <item.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-base sm:text-lg font-normal mb-2">{item.title}</h3>
-                  <p className="text-sm sm:text-base font-light leading-relaxed" style={{ color: 'hsl(var(--text-secondary))' }}>
-                    {item.description}
-                  </p>
-                </div>
-              </div>
+              <item.icon className={`w-8 h-8 sm:w-10 sm:h-10 mb-4 md:mb-6 ${index === 0 ? 'text-primary-foreground/70' : 'text-primary'}`} strokeWidth={1.5} />
+              <h3 className="text-lg sm:text-xl md:text-2xl font-normal mb-3 md:mb-4">{item.title}</h3>
+              <p className={`text-sm sm:text-base md:text-lg font-light leading-relaxed ${index === 0 ? 'text-primary-foreground/80' : ''}`} style={index === 1 ? { color: 'hsl(var(--text-secondary))' } : {}}>
+                {item.description}
+              </p>
             </motion.div>
           ))}
         </div>
