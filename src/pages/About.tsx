@@ -24,15 +24,17 @@ const About = () => {
 
         {/* Video Section */}
         <section className="section-container mb-20">
-          <div className="aspect-video w-full max-w-4xl mx-auto rounded-sm overflow-hidden bg-card">
-            <video 
-              src={aboutVideo} 
-              controls 
-              className="w-full h-full object-cover"
-              poster=""
-            >
-              הדפדפן שלך לא תומך בתגית וידאו.
-            </video>
+          <div className="flex justify-center">
+            <div className="w-full max-w-sm sm:max-w-md rounded-sm overflow-hidden bg-card">
+              <video 
+                src={aboutVideo} 
+                controls 
+                className="w-full h-auto"
+                poster=""
+              >
+                הדפדפן שלך לא תומך בתגית וידאו.
+              </video>
+            </div>
           </div>
         </section>
 
