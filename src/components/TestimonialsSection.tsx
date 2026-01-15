@@ -6,20 +6,20 @@ const testimonials = [
   {
     name: "יעל הנדל",
     title: "רקדנית בת 22, מורה לריקוד, זמרת ושחקנית",
-    quote: "מאז שהתחלתי את התכנית התחזקתי ברמות שלא הכרתי קודם. התחטבתי, אני מצליחה להחזיק את העומס של השבוע, ועדיין נשארת עם אנרגיות. פתאום הרגל עולה לגובה שתמיד רציתי בארבסק, אני מחזיקה את הגוף, ויכולה לתת מאה אחוז בכל אימון ובכל חזרה.",
-    extended: "שנים הייתי רוקדת בסטודיו ומרגישה שמשהו חסר. בדיעבד אני מבינה שחוץ משיעורים בסטודיו לא עשיתי אימוני חיזוק, וזה הוביל לא פעם לקריסה של הגוף."
+    quote: "מאז שהתחלתי את התכנית התחזקתי ברמות שלא הכרתי קודם. התחטבתי, אני מצליחה להחזיק את העומס של השבוע, ועדיין נשארת עם אנרגיות. פתאום הרגל עולה לגובה שתמיד רציתי בארבסק.",
+    extended: "שנים הייתי רוקדת בסטודיו ומרגישה שמשהו חסר. בדיעבד אני מבינה שחוץ משיעורים בסטודיו לא עשיתי אימוני חיזוק."
   },
   {
     name: "אור שגב",
     title: "רקדנית בת 18, רוקדת בסטודיו EDANCE",
     quote: "במהלך עשר השנים שאני רוקדת למדתי טכניקה וסגנונות ריקוד מגוונים, אבל רק בשנתיים האחרונות הבנתי עד כמה אימונים משלימים לרקדנים חיוניים לגוף שלי.",
-    extended: "האימונים עזרו לי להתאושש מפציעות מהר יותר, ללמוד על הגוף שלי ועל היכולות שלו, ולמנוע פציעות עתידיות. היום אני בטוחה שהאימונים האלה הם השקעה בעתיד שלי כרקדנית."
+    extended: "האימונים עזרו לי להתאושש מפציעות מהר יותר, ללמוד על הגוף שלי ועל היכולות שלו, ולמנוע פציעות עתידיות."
   },
   {
     name: "מיכל ביניש",
     title: "רקדנית בת 19, לומדת ב-London Studio Centre",
-    quote: "אני הכי שמחה בעולם שהגעתי אלייך. נהניתי בטירוף מכל אימון, שתמיד נגמר בחיוך, ורק חיכיתי כבר לאימון הבא. למדתי ממך המון – התחזקתי, צברתי ידע על החזקת הגוף.",
-    extended: "בכל אימון הרגשתי מאה אחוז אכפתיות ותשומת לב לפרטים הקטנים. כל שאלה שהייתה לי הוסברה בצורה ברורה, ותמיד הרגשתי שאת רואה אותי באמת."
+    quote: "אני הכי שמחה בעולם שהגעתי אלייך. נהניתי בטירוף מכל אימון, שתמיד נגמר בחיוך, ורק חיכיתי כבר לאימון הבא.",
+    extended: "בכל אימון הרגשתי מאה אחוז אכפתיות ותשומת לב לפרטים הקטנים. תמיד הרגשתי שאת רואה אותי באמת."
   },
   {
     name: "תמר לנגר",
@@ -31,7 +31,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [activeIndex, setActiveIndex] = useState(0);
 
   const nextTestimonial = () => {
@@ -43,31 +43,31 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="section-spacing bg-card" dir="rtl" ref={ref}>
-      <div className="section-container">
+    <section className="py-16 sm:py-20 md:py-28 lg:py-36 bg-card" dir="rtl" ref={ref}>
+      <div className="px-4 sm:px-6 md:px-12 lg:px-16 max-w-6xl mx-auto">
         <motion.div 
-          className="mb-16 flex items-end justify-between"
+          className="mb-10 md:mb-16 flex flex-col sm:flex-row sm:items-end justify-between gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
           <div>
-            <p className="text-caption mb-4">ביקורות</p>
-            <h2 className="text-section-title">מה אומרות הרקדניות</h2>
+            <p className="text-caption mb-3 md:mb-4">ביקורות</p>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-light leading-snug">מה אומרות הרקדניות</h2>
           </div>
           
           {/* Navigation Arrows - Desktop */}
           <div className="hidden md:flex items-center gap-2">
             <button 
               onClick={prevTestimonial}
-              className="w-10 h-10 rounded-full border border-border hover:border-foreground/50 flex items-center justify-center transition-colors"
+              className="w-10 h-10 rounded-full border border-border bg-background hover:border-primary/50 hover:bg-primary/5 flex items-center justify-center transition-colors"
               aria-label="ביקורת קודמת"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
             <button 
               onClick={nextTestimonial}
-              className="w-10 h-10 rounded-full border border-border hover:border-foreground/50 flex items-center justify-center transition-colors"
+              className="w-10 h-10 rounded-full border border-border bg-background hover:border-primary/50 hover:bg-primary/5 flex items-center justify-center transition-colors"
               aria-label="ביקורת הבאה"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -76,30 +76,30 @@ const TestimonialsSection = () => {
         </motion.div>
 
         {/* Desktop Grid */}
-        <div className="hidden md:grid md:grid-cols-2 gap-8">
+        <div className="hidden md:grid md:grid-cols-2 gap-6 lg:gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div 
               key={index}
-              className="p-8 bg-background rounded-sm border border-border relative"
+              className="p-6 lg:p-8 bg-background rounded-sm border border-border relative hover:border-primary/30 transition-colors"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
             >
-              <Quote className="w-8 h-8 text-foreground/10 absolute top-6 left-6" />
+              <Quote className="w-6 h-6 lg:w-8 lg:h-8 text-primary/20 absolute top-4 lg:top-6 left-4 lg:left-6" />
               
-              <div className="mb-6">
-                <h3 className="text-lg font-normal mb-1">{testimonial.name}</h3>
-                <p className="text-sm" style={{ color: 'hsl(var(--text-muted))' }}>
+              <div className="mb-4 lg:mb-6">
+                <h3 className="text-base lg:text-lg font-normal mb-1">{testimonial.name}</h3>
+                <p className="text-xs lg:text-sm" style={{ color: 'hsl(var(--text-muted))' }}>
                   {testimonial.title}
                 </p>
               </div>
               
-              <blockquote className="space-y-4">
-                <p className="text-body leading-relaxed" style={{ color: 'hsl(var(--text-secondary))' }}>
-                  {testimonial.quote}
+              <blockquote className="space-y-3 lg:space-y-4">
+                <p className="text-sm lg:text-base font-light leading-relaxed" style={{ color: 'hsl(var(--text-secondary))' }}>
+                  "{testimonial.quote}"
                 </p>
                 {testimonial.extended && (
-                  <p className="text-sm leading-relaxed" style={{ color: 'hsl(var(--text-muted))' }}>
+                  <p className="text-xs lg:text-sm leading-relaxed" style={{ color: 'hsl(var(--text-muted))' }}>
                     {testimonial.extended}
                   </p>
                 )}
@@ -111,25 +111,25 @@ const TestimonialsSection = () => {
         {/* Mobile Carousel */}
         <div className="md:hidden">
           <motion.div 
-            className="p-6 bg-background rounded-sm border border-border relative overflow-hidden"
+            className="p-5 sm:p-6 bg-background rounded-sm border border-border relative overflow-hidden"
             key={activeIndex}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3 }}
           >
-            <Quote className="w-8 h-8 text-foreground/10 absolute top-4 left-4" />
+            <Quote className="w-6 h-6 text-primary/20 absolute top-4 left-4" />
             
-            <div className="mb-6">
-              <h3 className="text-lg font-normal mb-1">{testimonials[activeIndex].name}</h3>
-              <p className="text-sm" style={{ color: 'hsl(var(--text-muted))' }}>
+            <div className="mb-4">
+              <h3 className="text-base font-normal mb-1">{testimonials[activeIndex].name}</h3>
+              <p className="text-xs" style={{ color: 'hsl(var(--text-muted))' }}>
                 {testimonials[activeIndex].title}
               </p>
             </div>
             
             <blockquote>
-              <p className="text-body leading-relaxed" style={{ color: 'hsl(var(--text-secondary))' }}>
-                {testimonials[activeIndex].quote}
+              <p className="text-sm leading-relaxed" style={{ color: 'hsl(var(--text-secondary))' }}>
+                "{testimonials[activeIndex].quote}"
               </p>
             </blockquote>
           </motion.div>
@@ -138,10 +138,10 @@ const TestimonialsSection = () => {
           <div className="flex items-center justify-center gap-4 mt-6">
             <button 
               onClick={prevTestimonial}
-              className="w-10 h-10 rounded-full border border-border hover:border-foreground/50 flex items-center justify-center transition-colors"
+              className="w-9 h-9 rounded-full border border-border bg-background hover:border-primary/50 flex items-center justify-center transition-colors"
               aria-label="ביקורת קודמת"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4" />
             </button>
             
             <div className="flex items-center gap-2">
@@ -149,8 +149,8 @@ const TestimonialsSection = () => {
                 <button
                   key={index}
                   onClick={() => setActiveIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    index === activeIndex ? 'bg-foreground' : 'bg-foreground/20'
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    index === activeIndex ? 'bg-primary w-4' : 'bg-primary/20'
                   }`}
                   aria-label={`ביקורת ${index + 1}`}
                 />
@@ -159,10 +159,10 @@ const TestimonialsSection = () => {
 
             <button 
               onClick={nextTestimonial}
-              className="w-10 h-10 rounded-full border border-border hover:border-foreground/50 flex items-center justify-center transition-colors"
+              className="w-9 h-9 rounded-full border border-border bg-background hover:border-primary/50 flex items-center justify-center transition-colors"
               aria-label="ביקורת הבאה"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4" />
             </button>
           </div>
         </div>
