@@ -94,9 +94,9 @@ const TestimonialsSection = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
             >
-              <div className="flex flex-col lg:flex-row">
+              <div className="flex flex-col lg:flex-row lg:items-start">
                 {/* Image */}
-                <div className="lg:w-2/5 aspect-square relative overflow-hidden">
+                <div className="lg:w-2/5 aspect-square relative overflow-hidden flex-none lg:self-start">
                   <img 
                     src={testimonial.image} 
                     alt={testimonial.name}
