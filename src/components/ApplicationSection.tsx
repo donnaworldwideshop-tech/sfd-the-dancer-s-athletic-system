@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Video, Calendar, BookOpen, Smartphone, Clock, TrendingUp } from "lucide-react";
+import { Video, Calendar, BookOpen, Smartphone } from "lucide-react";
 import productKit from "@/assets/product-kit.png";
 
 const ApplicationSection = () => {
@@ -94,35 +94,6 @@ const ApplicationSection = () => {
           </div>
         </div>
 
-        {/* עבודה לאורך זמן והתאמה לשלב בקריירה - New Design */}
-        <div className="grid md:grid-cols-2 gap-0 md:gap-px bg-transparent md:bg-primary overflow-hidden rounded-sm">
-          {[
-            {
-              icon: Clock,
-              title: "עבודה לאורך זמן",
-              description: "אימון כוח אפקטיבי דורש רצף ועקביות. השיטה נבנתה כך שתשתלב לצד שיעורי הריקוד - לא במקומם."
-            },
-            {
-              icon: TrendingUp,
-              title: "התאמה לשלב בקריירה",
-              description: "רקדן צעיר בונה בסיס. רקדן מתקדם מחזק, מייצב ושומר על הגוף לאורך זמן. התוכן והשיטה מאפשרים עבודה מדורגת."
-            }
-          ].map((item, index) => (
-            <motion.div 
-              key={index}
-              className={`p-6 sm:p-8 md:p-10 lg:p-12 ${index === 0 ? 'bg-primary text-primary-foreground' : 'bg-card border border-border md:border-0'}`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-            >
-              <item.icon className={`w-8 h-8 sm:w-10 sm:h-10 mb-4 md:mb-6 ${index === 0 ? 'text-primary-foreground/70' : 'text-primary'}`} strokeWidth={1.5} />
-              <h3 className="text-lg sm:text-xl md:text-2xl font-normal mb-3 md:mb-4">{item.title}</h3>
-              <p className={`text-sm sm:text-base md:text-lg font-light leading-relaxed ${index === 0 ? 'text-primary-foreground/80' : ''}`} style={index === 1 ? { color: 'hsl(var(--text-secondary))' } : {}}>
-                {item.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   );
