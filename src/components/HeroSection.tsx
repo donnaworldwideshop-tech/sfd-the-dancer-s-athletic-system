@@ -17,7 +17,7 @@ const HeroSection = () => {
         <motion.img 
           src={dancerHero} 
           alt="Dancer" 
-          className="w-full h-full object-cover object-[70%_center] md:object-center"
+          className="w-full h-full object-cover object-[75%_top] sm:object-[70%_center] md:object-center"
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
