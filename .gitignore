@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Shopify theme build
+*.zip
+sfd-horizon-theme.zip
+
+# Large media files (copy manually to Shopify)
+shopify/assets/*.mp4
+shopify/assets/*.mov

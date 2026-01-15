@@ -1,0 +1,25 @@
+{
+  "current": {
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "product_link": "/pages/product",
+          "product_label": "ערכת האימון"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "description": "שיטת אימון כוח מקצועית ייעודית לרקדנים. בונים בסיס כוח שמשרת את התנועה הרקדנית.",
+          "email": "contact@sfd.co.il",
+          "instagram": "https://instagram.com/strengthfordancers",
+          "instagram_handle": "@strengthfordancers",
+          "copyright_text": "כל הזכויות שמורות.",
+          "terms_label": "תנאי שימוש",
+          "privacy_label": "מדיניות פרטיות"
+        }
+      }
+    }
+  }
+}

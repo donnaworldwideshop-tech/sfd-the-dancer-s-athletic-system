@@ -1,0 +1,103 @@
+{% comment %}
+  Studios Section - Converted from React StudiosSection component
+  Displays partner studios with logos
+{% endcomment %}
+
+<section class="studios-section py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-12 lg:px-16 bg-background" dir="rtl">
+  <div class="max-w-6xl mx-auto">
+    {% if section.settings.heading != blank %}
+      <div class="text-center mb-12 md:mb-16">
+        <p class="text-xs sm:text-sm uppercase tracking-widest mb-3 text-muted-foreground">
+          {{ section.settings.tagline }}
+        </p>
+        <h2 class="text-xl sm:text-2xl md:text-3xl font-light leading-snug">
+          {{ section.settings.heading }}
+        </h2>
+      </div>
+    {% endif %}
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-center justify-items-center">
+      {% for block in section.blocks %}
+        <div class="studio-logo-wrapper" {{ block.shopify_attributes }}>
+          {% if block.settings.logo != blank %}
+            {% if block.settings.link != blank %}
+              <a href="{{ block.settings.link }}" target="_blank" rel="noopener noreferrer" class="block grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100">
+                {{ block.settings.logo | image_url: width: 200 | image_tag: class: 'max-h-16 md:max-h-20 w-auto', alt: block.settings.name }}
+              </a>
+            {% else %}
+              <div class="grayscale opacity-70">
+                {{ block.settings.logo | image_url: width: 200 | image_tag: class: 'max-h-16 md:max-h-20 w-auto', alt: block.settings.name }}
+              </div>
+            {% endif %}
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .studio-logo-wrapper {
+    animation: fadeIn 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .studio-logo-wrapper:nth-child(1) { animation-delay: 0.1s; }
+  .studio-logo-wrapper:nth-child(2) { animation-delay: 0.2s; }
+  .studio-logo-wrapper:nth-child(3) { animation-delay: 0.3s; }
+  .studio-logo-wrapper:nth-child(4) { animation-delay: 0.4s; }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Studios Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "שיתופי פעולה"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "סטודיואים שעובדים איתנו"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "studio",
+      "name": "Studio",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Studio Logo"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Studio Name"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Studio Website"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Studios Section"
+    }
+  ]
+}
+{% endschema %}

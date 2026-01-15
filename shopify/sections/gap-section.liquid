@@ -1,0 +1,96 @@
+{% comment %}
+  Gap Section - Converted from React GapSection component
+  Displays problem statement and solution
+{% endcomment %}
+
+<section class="gap-section py-16 sm:py-20 md:py-28 lg:py-36 px-4 sm:px-6 md:px-12 lg:px-16 bg-card" dir="rtl">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-12 gap-8 md:gap-12 lg:gap-16">
+      <div class="md:col-span-4">
+        <div class="md:sticky md:top-32">
+          <div class="w-12 h-1 bg-primary mb-6"></div>
+          {% if section.settings.heading != blank %}
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-light leading-snug">
+              {{ section.settings.heading }}
+            </h2>
+          {% endif %}
+        </div>
+      </div>
+      
+      <div class="md:col-span-8 space-y-6">
+        {% for block in section.blocks %}
+          <div class="content-block" {{ block.shopify_attributes }}>
+            {% if block.settings.text != blank %}
+              <p class="text-base sm:text-lg md:text-xl font-light leading-relaxed text-secondary-foreground">
+                {{ block.settings.text }}
+              </p>
+            {% endif %}
+            
+            {% if block.settings.highlight_text != blank %}
+              <p class="text-base sm:text-lg md:text-xl font-normal leading-relaxed text-foreground">
+                {{ block.settings.highlight_text }}
+              </p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .content-block {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .content-block:nth-child(1) { animation-delay: 0.1s; }
+  .content-block:nth-child(2) { animation-delay: 0.2s; }
+  .content-block:nth-child(3) { animation-delay: 0.3s; }
+  .content-block:nth-child(4) { animation-delay: 0.4s; }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Gap Section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "הבעיה שאנחנו פותרים"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content",
+      "name": "Content Block",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Regular Text"
+        },
+        {
+          "type": "textarea",
+          "id": "highlight_text",
+          "label": "Highlighted Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gap Section"
+    }
+  ]
+}
+{% endschema %}
