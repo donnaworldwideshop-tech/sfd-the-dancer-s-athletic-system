@@ -29,7 +29,8 @@ const HeroSection = () => {
       <div className="section-container relative z-10 pt-20 md:pt-0 flex items-center justify-center">
         <div className="max-w-xl text-center" dir="rtl">
           <motion.p 
-            className="text-caption mb-4 md:mb-8"
+            className="text-xs sm:text-sm uppercase tracking-widest mb-3 sm:mb-6"
+            style={{ color: 'hsl(var(--text-muted))' }}
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -37,7 +38,7 @@ const HeroSection = () => {
             SFD - STRENGTH FOR DANCERS
           </motion.p>
           <motion.h1 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-4 md:mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-3 sm:mb-5"
             initial={{ opacity: 0, y: 30 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
@@ -45,7 +46,7 @@ const HeroSection = () => {
             רקדן הוא ספורטאי.
           </motion.h1>
           <motion.p 
-            className="text-base sm:text-lg md:text-xl font-light leading-relaxed max-w-md mx-auto"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl font-light leading-relaxed max-w-md mx-auto"
             style={{ color: 'hsl(var(--text-secondary))' }}
             initial={{ opacity: 0, y: 30 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
