@@ -96,13 +96,12 @@ const TestimonialsSection = () => {
             >
               <div className="flex flex-col lg:flex-row">
                 {/* Image */}
-                <div className="lg:w-2/5 h-48 lg:h-auto relative overflow-hidden">
+                <div className="lg:w-2/5 aspect-square relative overflow-hidden">
                   <img 
                     src={testimonial.image} 
                     alt={testimonial.name}
                     className="w-full h-full object-cover object-top"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-background/20 to-transparent" />
                 </div>
                 
                 {/* Content */}
@@ -143,13 +142,12 @@ const TestimonialsSection = () => {
             transition={{ duration: 0.3 }}
           >
             {/* Image */}
-            <div className="h-56 relative overflow-hidden">
+            <div className="aspect-square relative overflow-hidden">
               <img 
                 src={testimonials[activeIndex].image} 
                 alt={testimonials[activeIndex].name}
                 className="w-full h-full object-cover object-top"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
             </div>
             
             {/* Content */}
