@@ -17,7 +17,7 @@ const HeroSection = () => {
         <motion.img 
           src={dancerHero} 
           alt="Dancer" 
-          className="w-full h-full object-cover object-[50%_top] sm:object-[60%_center] md:object-center"
+          className="w-full h-full object-cover object-[20%_top] sm:object-[40%_center] md:object-center"
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
@@ -37,7 +37,7 @@ const HeroSection = () => {
             SFD – STRENGTH FOR DANCERS
           </motion.p>
           <motion.h1 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight tracking-tight mb-4 md:mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-4 md:mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
