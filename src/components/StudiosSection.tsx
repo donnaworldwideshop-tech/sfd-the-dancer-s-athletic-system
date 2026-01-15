@@ -26,8 +26,7 @@ const StudiosSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-caption mb-3">סטודיואים מובילים</p>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-light">עובדת עם הטובים ביותר</h2>
+          <p className="text-caption">סטודיואים מובילים</p>
         </motion.div>
 
         <motion.div 
