@@ -26,8 +26,8 @@ const HeroSection = () => {
       </div>
       
       {/* Content */}
-      <div className="section-container relative z-10 pt-20 md:pt-0 flex items-center justify-center md:justify-end">
-        <div className="max-w-xl text-center md:text-right md:pr-8 lg:pr-16" dir="rtl">
+      <div className="section-container relative z-10 pt-20 md:pt-0 flex items-center justify-center">
+        <div className="max-w-xl text-center" dir="rtl">
           <motion.p 
             className="text-caption mb-4 md:mb-8"
             initial={{ opacity: 0, y: 20 }}
