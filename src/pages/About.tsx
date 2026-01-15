@@ -14,11 +14,13 @@ const About = () => {
   const section2Ref = useRef(null);
   const section3Ref = useRef(null);
   const section4Ref = useRef(null);
+  const section5Ref = useRef(null);
   
   const isSection1InView = useInView(section1Ref, { once: true, margin: "-100px" });
   const isSection2InView = useInView(section2Ref, { once: true, margin: "-100px" });
   const isSection3InView = useInView(section3Ref, { once: true, margin: "-100px" });
   const isSection4InView = useInView(section4Ref, { once: true, margin: "-100px" });
+  const isSection5InView = useInView(section5Ref, { once: true, margin: "-100px" });
 
   const toggleMute = () => {
     if (videoRef.current) {
@@ -42,10 +44,10 @@ const About = () => {
             >
               <p className="text-caption mb-3 sm:mb-4">אודות</p>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 sm:mb-6">
-                שיטת SFD
+                שחר מיטרה
               </h1>
               <p className="text-base sm:text-lg md:text-xl font-light leading-relaxed" style={{ color: 'hsl(var(--text-secondary))' }}>
-                שיטה מקצועית לאימון כוח ייעודי לרקדנים.
+                רקדנית מקצועית ומאמנת כוח לרקדנים.
               </p>
             </motion.div>
             
@@ -79,7 +81,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* Why the Method - Full Width Background */}
+        {/* The Journey - Full Width Background */}
         <section 
           ref={section1Ref}
           className="py-16 sm:py-20 md:py-28 bg-card mb-16 sm:mb-20 md:mb-28"
@@ -95,7 +97,7 @@ const About = () => {
                 <div className="sticky top-32">
                   <div className="w-12 h-1 bg-primary mb-6" />
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-light leading-snug">
-                    למה השיטה פותחה
+                    רקדן הוא אתלט
                   </h2>
                 </div>
               </motion.div>
@@ -107,16 +109,15 @@ const About = () => {
               >
                 <div className="space-y-6 text-base sm:text-lg md:text-xl font-light leading-relaxed" style={{ color: 'hsl(var(--text-secondary))' }}>
                   <p>
-                    עולם הריקוד מכיר בחשיבות האימון הגופני, אבל לרוב מציע 
-                    פתרונות שאינם מותאמים לצרכים הספציפיים של רקדנים.
+                    אחרי למעלה מעשור כרקדנית מקצועית - בבלט קלאסי ובמחול מודרני, 
+                    הבנתי דבר אחד חשוב: רקדן הוא אתלט. והגוף שלו צריך אימון שמדבר בדיוק את השפה הזו.
                   </p>
                   <p>
-                    אימוני כוח קונבנציונליים לא תוכננו לדרישות הייחודיות של ריקוד -
-                    טווחי תנועה קיצוניים, שליטה במהירויות משתנות, ויציבות דינמית.
+                    רקדנים עובדים תחת עומסים קיצוניים, דורשים דיוק מוחלט, שליטה גבוהה ותנועה אינטנסיבית יום-יום.
                   </p>
                   <p className="text-foreground font-normal">
-                    שיטת SFD פותחה כדי לגשר על הפער הזה:
-                    להציע מסגרת אימון מקצועית שמדברת את שפת הגוף של הרקדן.
+                    כשמערכת האימון אינה מותאמת למציאות הזו - הגוף משלם מחיר: 
+                    פציעות, חוסר יציבות, ירידה בביצועים ולעיתים גם עצירה בהתפתחות המקצועית.
                   </p>
                 </div>
               </motion.div>
@@ -124,7 +125,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* The Gap - With accent border */}
+        {/* SFD Birth - With accent border */}
         <section 
           ref={section2Ref}
           className="section-container mb-16 sm:mb-20 md:mb-28"
@@ -139,8 +140,11 @@ const About = () => {
               <div className="sticky top-32">
                 <div className="w-12 h-1 bg-primary mb-6" />
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-light leading-snug">
-                  הפער המקצועי
+                  כך נולד SFD
                 </h2>
+                <p className="text-sm mt-3" style={{ color: 'hsl(var(--text-muted))' }}>
+                  Strength for Dancers
+                </p>
               </div>
             </motion.div>
             <motion.div 
@@ -151,24 +155,16 @@ const About = () => {
             >
               <div className="border-r-4 border-primary pr-6 sm:pr-8 space-y-6 text-base sm:text-lg md:text-xl font-light leading-relaxed" style={{ color: 'hsl(var(--text-secondary))' }}>
                 <p>
-                  רקדנים רבים מתאמנים שנים ללא בסיס כוח מתאים.
-                  התוצאה: פציעות חוזרות, תחושת חוסר יציבות, ומגבלות טכניות שלא נפתרות.
-                </p>
-                <p>
-                  הבעיה אינה חוסר מאמץ - אלא חוסר כלים מקצועיים.
-                  אימון כוח לרקדנים דורש הבנה מעמיקה של הגוף הרוקד,
-                  לא רק של עקרונות כושר כלליים.
-                </p>
-                <p>
-                  השיטה נבנתה על בסיס הבנה זו, ומציעה כלי עבודה פרקטי
-                  שמשתלב לצד שיעורי הריקוד - לא במקומם.
+                  מהצורך האישי שלי נבנתה ההתמחות שלי. 
+                  הוסמכתי כמאמנת כושר, מאמנת פילאטיס ומדריכת קטינים, 
+                  והתמחיתי באימוני כוח מותאמים לרקדנים - בשיטות מתקדמות מחו״ל ובסטנדרטים מקצועיים מהגבוהים בתחום.
                 </p>
               </div>
             </motion.div>
           </div>
         </section>
 
-        {/* About Shahar - Card style */}
+        {/* The Method - Card style */}
         <section 
           ref={section3Ref}
           className="section-container mb-16 sm:mb-20 md:mb-28"
@@ -182,36 +178,78 @@ const About = () => {
             <div className="grid md:grid-cols-12 gap-8 md:gap-12">
               <div className="md:col-span-4">
                 <p className="text-xs sm:text-sm font-normal tracking-wide uppercase mb-3 text-primary-foreground/60">
-                  מפתחת השיטה
+                  השיטה
                 </p>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-light leading-snug">
-                  שחר מרקוביץ'
+                  מערכת אימונים מקצועית ושלמה
                 </h2>
               </div>
               <div className="md:col-span-8 space-y-6 text-base sm:text-lg md:text-xl font-light leading-relaxed text-primary-foreground/80">
                 <p>
-                  שחר מרקוביץ' פיתחה את שיטת SFD מתוך עבודה מעשית עם רקדנים
-                  ומתוך הבנת הפער בין עולם האימון לעולם הריקוד.
+                  מערכת אימוני כוח מקצועית ושלמה, שנבנתה מהגוף הרקדני - החוצה.
                 </p>
                 <p>
-                  השיטה מבוססת על ידע מקצועי באימון כוח, ביומכניקה,
-                  ועל הכרות עמוקה עם הדרישות הגופניות של הריקוד.
+                  זו לא התאמה נקודתית ולא פתרון זמני. 
+                  זו דרך עבודה חכמה, עקבית ומעמיקה, שנבנתה במיוחד למאפיינים הפיזיים, 
+                  הדרישות הביצועיות והקצב המנטלי של רקדנים.
                 </p>
-                <p className="text-primary-foreground">
-                  המטרה: להנגיש כלי עבודה מקצועי לרקדנים שרוצים לבנות
-                  בסיס כוח איכותי - בצורה עצמאית, בטוחה ומדויקת.
+                <p className="text-primary-foreground font-normal">
+                  שיטה שמבינה את הגוף הרקדני - ומכבדת אותו.
                 </p>
               </div>
             </div>
           </motion.div>
         </section>
 
+        {/* The Approach */}
+        <section 
+          ref={section4Ref}
+          className="section-container mb-16 sm:mb-20 md:mb-28"
+        >
+          <div className="grid md:grid-cols-12 gap-8 md:gap-12">
+            <motion.div 
+              className="md:col-span-4"
+              initial={{ opacity: 0, x: -30 }}
+              animate={isSection4InView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="sticky top-32">
+                <div className="w-12 h-1 bg-primary mb-6" />
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-light leading-snug">
+                  הגישה שלי
+                </h2>
+              </div>
+            </motion.div>
+            <motion.div 
+              className="md:col-span-8"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isSection4InView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <div className="space-y-6 text-base sm:text-lg md:text-xl font-light leading-relaxed" style={{ color: 'hsl(var(--text-secondary))' }}>
+                <p>
+                  אימוני כוח מדויקים, עם הבנה עמוקה של תנועה ושל הצרכים הייחודיים של כל רקדן, 
+                  בונים בסיס חזק, יציב ובטוח - כזה שמאפשר לפרוץ קדימה.
+                </p>
+                <p>
+                  כיום אני עובדת בשיתוף פעולה עם הסטודיואים המובילים בארץ.
+                </p>
+                <p className="text-foreground font-normal">
+                  המטרה שלנו היא לאפשר לכל רקדן לממש את הפוטנציאל שלו - 
+                  עם כלים מקצועיים לאימוני כוח שמאפשרים לעבוד חזק, מדויק ובטוח, 
+                  לשמור על גוף בריא לאורך זמן ולהגיע להישגים גבוהים כרקדנים.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         {/* CTA */}
-        <section ref={section4Ref} className="section-container">
+        <section ref={section5Ref} className="section-container">
           <motion.div 
             className="text-center"
             initial={{ opacity: 0, y: 20 }}
-            animate={isSection4InView ? { opacity: 1, y: 0 } : {}}
+            animate={isSection5InView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
             <Link 
