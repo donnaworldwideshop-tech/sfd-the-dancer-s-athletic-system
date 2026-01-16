@@ -29,6 +29,7 @@ mkdir -p "${THEME_DIR}"/{assets,config,layout,locales,sections,snippets,template
 cp -r ${BUILD_DIR}/assets/* "${THEME_DIR}/assets/" 2>/dev/null || true
 cp -r ${BUILD_DIR}/config/* "${THEME_DIR}/config/" 2>/dev/null || true
 cp -r ${BUILD_DIR}/layout/* "${THEME_DIR}/layout/" 2>/dev/null || true
+cp -r ${BUILD_DIR}/locales/* "${THEME_DIR}/locales/" 2>/dev/null || true
 cp -r ${BUILD_DIR}/sections/* "${THEME_DIR}/sections/" 2>/dev/null || true
 cp -r ${BUILD_DIR}/snippets/* "${THEME_DIR}/snippets/" 2>/dev/null || true
 cp -r ${BUILD_DIR}/templates/* "${THEME_DIR}/templates/" 2>/dev/null || true
@@ -45,9 +46,9 @@ find "${THEME_DIR}" -name "Thumbs.db" -delete
 
 echo "🗜️  Creating ZIP file..."
 
-# Create ZIP file
-cd "${TEMP_DIR}" || exit 1
-zip -r "${OUTPUT_FILE}" "${THEME_NAME}" > /dev/null
+# Create ZIP file - zip contents directly, not the parent folder
+cd "${THEME_DIR}" || exit 1
+zip -r "${OUTPUT_FILE}" . > /dev/null
 
 # Move ZIP to project root
 mv "${OUTPUT_FILE}" "${OLDPWD}/" || exit 1
