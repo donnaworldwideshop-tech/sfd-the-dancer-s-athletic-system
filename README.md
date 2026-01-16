@@ -1,5 +1,40 @@
 # Welcome to your Lovable project
 
+## 🎨 Shopify Theme Available!
+
+**This repository includes a production-ready Shopify Liquid theme conversion.**
+
+### 📦 Download the Theme
+
+The Shopify theme is available as a ready-to-upload ZIP file:
+- **File**: `sfd-horizon-theme.zip` (6.4 MB)
+- **Location**: Root of this repository
+
+### 🚀 Quick Upload to Shopify
+
+1. Download `sfd-horizon-theme.zip` from this repository
+2. Log in to your Shopify Admin
+3. Go to **Online Store** → **Themes**
+4. Click **Add theme** → **Upload ZIP file**
+5. Select the downloaded ZIP file
+6. Click **Publish** when ready
+
+### 📖 Documentation
+
+- **Installation Guide**: See `SHOPIFY_INSTALLATION_GUIDE.md`
+- **Theme Documentation**: See `shopify/README.md`
+- **Conversion Summary**: See `SHOPIFY_CONVERSION_SUMMARY.md`
+
+### 🔨 Rebuild the Theme (Optional)
+
+If you modify files in the `shopify/` directory, rebuild the ZIP:
+
+```bash
+./build-shopify-theme.sh
+```
+
+---
+
 ## Project info
 
 **URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
