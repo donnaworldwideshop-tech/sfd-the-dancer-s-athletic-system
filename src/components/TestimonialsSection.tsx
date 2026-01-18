@@ -1,5 +1,5 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 import yaelHendel from "@/assets/testimonials/yael-hendel.jpeg";
@@ -40,83 +40,216 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-15%" });
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  const nextTestimonial = () => setActiveIndex((prev) => (prev + 1) % testimonials.length);
-  const prevTestimonial = () => setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  const nextTestimonial = () => {
+    setActiveIndex((prev) => (prev + 1) % testimonials.length);
+    setIsAutoPlaying(false);
+  };
+  
+  const prevTestimonial = () => {
+    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setIsAutoPlaying(false);
+  };
+
+  // Auto-advance on mobile
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40, scale: 0.98 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: { duration: 0.7, ease: "easeOut" }
+    }
+  };
 
   return (
-    <section className="py-20 sm:py-28 md:py-36 lg:py-44 bg-card" dir="rtl" ref={ref}>
-      <div className="px-4 sm:px-6 md:px-12 lg:px-16 max-w-6xl mx-auto">
+    <section className="py-24 sm:py-32 md:py-40 lg:py-48 bg-card relative" dir="rtl" ref={ref}>
+      {/* Subtle pattern */}
+      <div className="absolute inset-0 opacity-[0.02]" style={{
+        backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--foreground)) 1px, transparent 0)`,
+        backgroundSize: '32px 32px'
+      }} />
+      
+      <div className="px-4 sm:px-6 md:px-12 lg:px-16 max-w-6xl mx-auto relative">
         <motion.div 
-          className="mb-12 md:mb-16 flex flex-col sm:flex-row sm:items-end justify-between gap-6"
-          initial={{ opacity: 0, y: 24 }}
+          className="mb-14 md:mb-20 flex flex-col sm:flex-row sm:items-end justify-between gap-8"
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <div>
-            <p className="text-caption mb-4">ביקורות</p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-light leading-[1.2]">מה אומרות הרקדניות</h2>
+            <p className="text-eyebrow mb-4">ביקורות</p>
+            <h2 className="text-section-title">
+              מה אומרות <span className="text-foreground/50">הרקדניות</span>
+            </h2>
           </div>
           
+          {/* Navigation buttons */}
           <div className="hidden md:flex items-center gap-3">
-            <button onClick={prevTestimonial} className="w-11 h-11 rounded-full border border-border bg-background hover:border-primary/40 hover:bg-primary/5 flex items-center justify-center transition-all duration-300 hover:scale-105" aria-label="ביקורת קודמת">
-              <ChevronRight className="w-5 h-5" strokeWidth={1.5} />
+            <button 
+              onClick={prevTestimonial} 
+              className="w-12 h-12 rounded-full border border-border bg-background hover:border-foreground/30 hover:bg-foreground/5 flex items-center justify-center transition-all duration-300 group"
+              aria-label="ביקורת קודמת"
+            >
+              <ChevronRight className="w-5 h-5 group-hover:scale-110 transition-transform" strokeWidth={1.5} />
             </button>
-            <button onClick={nextTestimonial} className="w-11 h-11 rounded-full border border-border bg-background hover:border-primary/40 hover:bg-primary/5 flex items-center justify-center transition-all duration-300 hover:scale-105" aria-label="ביקורת הבאה">
-              <ChevronLeft className="w-5 h-5" strokeWidth={1.5} />
+            <button 
+              onClick={nextTestimonial} 
+              className="w-12 h-12 rounded-full border border-border bg-background hover:border-foreground/30 hover:bg-foreground/5 flex items-center justify-center transition-all duration-300 group"
+              aria-label="ביקורת הבאה"
+            >
+              <ChevronLeft className="w-5 h-5 group-hover:scale-110 transition-transform" strokeWidth={1.5} />
             </button>
           </div>
         </motion.div>
 
-        {/* Desktop Grid */}
-        <div className="hidden md:grid md:grid-cols-2 gap-6 lg:gap-8">
+        {/* Desktop Grid - 2x2 */}
+        <motion.div 
+          className="hidden md:grid md:grid-cols-2 gap-6 lg:gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {testimonials.map((testimonial, index) => (
-            <motion.div key={index} className="bg-background rounded-sm border border-border relative overflow-hidden transition-all duration-500 hover:border-primary/25 hover:shadow-lg hover:translate-y-[-4px] group" initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.15 + index * 0.1, ease: [0.4, 0, 0.2, 1] }}>
-              <div className="flex flex-col lg:flex-row lg:items-start">
-                <div className="lg:w-2/5 aspect-square relative overflow-hidden flex-none img-zoom">
-                  <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover object-top" />
+            <motion.div 
+              key={index} 
+              className="group bg-background rounded-xl border border-border relative overflow-hidden 
+                transition-all duration-500 hover:border-foreground/15 hover:shadow-lg"
+              variants={cardVariants}
+              whileHover={{ y: -6, transition: { duration: 0.3 } }}
+            >
+              <div className="flex flex-col lg:flex-row lg:items-stretch">
+                {/* Image */}
+                <div className="lg:w-2/5 aspect-[4/5] relative overflow-hidden flex-none">
+                  <img 
+                    src={testimonial.image} 
+                    alt={testimonial.name} 
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" 
+                  />
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
-                <div className="lg:w-3/5 p-6 lg:p-7 relative">
-                  <Quote className="w-6 h-6 text-primary/15 absolute top-5 left-5" strokeWidth={1.5} />
-                  <div className="mb-4">
-                    <h3 className="text-lg font-normal mb-1">{testimonial.name}</h3>
-                    <p className="text-xs" style={{ color: 'hsl(var(--text-muted))' }}>{testimonial.title}</p>
+                
+                {/* Content */}
+                <div className="lg:w-3/5 p-7 lg:p-8 relative flex flex-col">
+                  {/* Quote icon */}
+                  <Quote className="w-8 h-8 text-foreground/[0.06] absolute top-6 left-6" strokeWidth={1} />
+                  
+                  {/* Header */}
+                  <div className="mb-5">
+                    <h3 className="text-lg font-medium mb-1">{testimonial.name}</h3>
+                    <p className="text-sm text-muted-foreground">{testimonial.title}</p>
                   </div>
-                  <blockquote className="space-y-3">
-                    <p className="text-sm lg:text-base font-light leading-relaxed" style={{ color: 'hsl(var(--text-secondary))' }}>"{testimonial.quote}"</p>
-                    {testimonial.extended && <p className="text-xs leading-relaxed" style={{ color: 'hsl(var(--text-muted))' }}>{testimonial.extended}</p>}
+                  
+                  {/* Quote */}
+                  <blockquote className="flex-1">
+                    <p className="text-base font-light leading-[1.8] text-foreground/80 mb-4">
+                      "{testimonial.quote}"
+                    </p>
+                    {testimonial.extended && (
+                      <p className="text-sm leading-relaxed text-muted-foreground">
+                        {testimonial.extended}
+                      </p>
+                    )}
                   </blockquote>
                 </div>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Mobile Carousel */}
+        {/* Mobile Carousel - Premium */}
         <div className="md:hidden">
           <AnimatePresence mode="wait">
-            <motion.div key={activeIndex} className="bg-background rounded-sm border border-border overflow-hidden" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}>
-              <div className="aspect-[4/3] overflow-hidden img-zoom">
-                <img src={testimonials[activeIndex].image} alt={testimonials[activeIndex].name} className="w-full h-full object-cover object-top" />
+            <motion.div 
+              key={activeIndex} 
+              className="bg-background rounded-xl border border-border overflow-hidden shadow-sm"
+              initial={{ opacity: 0, x: 60 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -60 }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            >
+              {/* Image */}
+              <div className="aspect-[4/3] overflow-hidden relative">
+                <img 
+                  src={testimonials[activeIndex].image} 
+                  alt={testimonials[activeIndex].name} 
+                  className="w-full h-full object-cover object-top" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent" />
               </div>
+              
+              {/* Content */}
               <div className="p-6 relative">
-                <Quote className="w-5 h-5 text-primary/15 absolute top-5 left-5" strokeWidth={1.5} />
+                <Quote className="w-6 h-6 text-foreground/[0.06] absolute top-5 left-5" strokeWidth={1} />
+                
                 <div className="mb-4">
-                  <h3 className="text-base font-normal mb-1">{testimonials[activeIndex].name}</h3>
-                  <p className="text-xs" style={{ color: 'hsl(var(--text-muted))' }}>{testimonials[activeIndex].title}</p>
+                  <h3 className="text-base font-medium mb-1">{testimonials[activeIndex].name}</h3>
+                  <p className="text-xs text-muted-foreground">{testimonials[activeIndex].title}</p>
                 </div>
-                <p className="text-sm leading-relaxed" style={{ color: 'hsl(var(--text-secondary))' }}>"{testimonials[activeIndex].quote}"</p>
+                
+                <p className="text-sm font-light leading-relaxed text-foreground/80">
+                  "{testimonials[activeIndex].quote}"
+                </p>
               </div>
             </motion.div>
           </AnimatePresence>
-          <div className="flex items-center justify-center gap-5 mt-8">
-            <button onClick={prevTestimonial} className="w-10 h-10 rounded-full border border-border bg-background flex items-center justify-center transition-all duration-300 active:scale-95" aria-label="ביקורת קודמת"><ChevronRight className="w-4 h-4" strokeWidth={1.5} /></button>
+          
+          {/* Mobile controls */}
+          <div className="flex items-center justify-center gap-6 mt-8">
+            <button 
+              onClick={prevTestimonial} 
+              className="w-11 h-11 rounded-full border border-border bg-background flex items-center justify-center transition-all duration-300 active:scale-95"
+              aria-label="ביקורת קודמת"
+            >
+              <ChevronRight className="w-4 h-4" strokeWidth={1.5} />
+            </button>
+            
+            {/* Dots */}
             <div className="flex items-center gap-2">
-              {testimonials.map((_, index) => (<button key={index} onClick={() => setActiveIndex(index)} className={`h-2 rounded-full transition-all duration-300 ${index === activeIndex ? 'bg-primary w-6' : 'bg-primary/20 w-2'}`} aria-label={`ביקורת ${index + 1}`} />))}
+              {testimonials.map((_, index) => (
+                <button 
+                  key={index} 
+                  onClick={() => { setActiveIndex(index); setIsAutoPlaying(false); }}
+                  className={`h-2 rounded-full transition-all duration-400 ${
+                    index === activeIndex 
+                      ? 'bg-foreground w-8' 
+                      : 'bg-foreground/20 w-2 hover:bg-foreground/40'
+                  }`}
+                  aria-label={`ביקורת ${index + 1}`} 
+                />
+              ))}
             </div>
-            <button onClick={nextTestimonial} className="w-10 h-10 rounded-full border border-border bg-background flex items-center justify-center transition-all duration-300 active:scale-95" aria-label="ביקורת הבאה"><ChevronLeft className="w-4 h-4" strokeWidth={1.5} /></button>
+            
+            <button 
+              onClick={nextTestimonial} 
+              className="w-11 h-11 rounded-full border border-border bg-background flex items-center justify-center transition-all duration-300 active:scale-95"
+              aria-label="ביקורת הבאה"
+            >
+              <ChevronLeft className="w-4 h-4" strokeWidth={1.5} />
+            </button>
           </div>
         </div>
       </div>
