@@ -3,7 +3,7 @@ import { useRef } from "react";
 
 const GapSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-15%" });
 
   const problemPoints = [
     "רקדנים מתאמנים שעות ביום, אך אימון טכני לבדו לא בונה את הכוח שנדרש כדי לתמוך בתנועה.",
@@ -11,47 +11,78 @@ const GapSection = () => {
     "כוח שלא נבנה מתוך הבנה של התנועה הרקדנית לא ישרת את הרקדן לאורך זמן."
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.7, ease: "easeOut" }
+    }
+  };
+
   return (
-    <section className="py-20 sm:py-28 md:py-36 lg:py-44 px-4 sm:px-6 md:px-12 lg:px-16" dir="rtl" ref={ref}>
+    <section className="py-24 sm:py-32 md:py-40 lg:py-48 px-4 sm:px-6 md:px-12 lg:px-16" dir="rtl" ref={ref}>
       <div className="max-w-6xl mx-auto">
-        <div className="divider-line mb-16 md:mb-20 lg:mb-28" />
+        {/* Animated divider */}
+        <motion.div 
+          className="h-px mb-16 md:mb-24 lg:mb-32 overflow-hidden"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+        >
+          <motion.div 
+            className="h-full bg-gradient-to-r from-transparent via-border to-transparent"
+            initial={{ x: '-100%' }}
+            animate={isInView ? { x: '0%' } : {}}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          />
+        </motion.div>
         
-        <div className="grid md:grid-cols-2 gap-10 md:gap-16 lg:gap-28">
+        <div className="grid md:grid-cols-12 gap-10 md:gap-12 lg:gap-20">
           {/* Left Column - Title */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
+          <motion.div 
+            className="md:col-span-5"
+            initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             <motion.p 
-              className="text-caption mb-5 md:mb-6"
-              initial={{ opacity: 0, y: 10 }}
+              className="text-eyebrow mb-6"
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
               הבעיה
             </motion.p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-light leading-[1.2] text-balance">
+            <h2 className="text-subsection-title text-balance">
               עולם הריקוד ואימוני הכוח
               <br className="hidden sm:block" />
-              לא מדברים באותה השפה.
+              <span className="text-foreground/60">לא מדברים באותה השפה.</span>
             </h2>
           </motion.div>
           
           {/* Right Column - Problem Points */}
-          <div className="space-y-5 md:space-y-6">
+          <motion.div 
+            className="md:col-span-7 space-y-6"
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
             {problemPoints.map((text, index) => (
               <motion.p 
                 key={index}
-                className="text-base sm:text-lg md:text-xl font-light leading-relaxed" 
-                style={{ color: 'hsl(var(--text-secondary))' }}
-                initial={{ opacity: 0, y: 24 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: 0.25 + index * 0.12,
-                  ease: [0.4, 0, 0.2, 1]
-                }}
+                className="text-body-large"
+                variants={itemVariants}
               >
                 {text}
               </motion.p>
@@ -59,19 +90,20 @@ const GapSection = () => {
             
             {/* Result Callout - Premium styling */}
             <motion.div 
-              className="relative p-6 sm:p-8 bg-primary/[0.03] border-r-2 border-primary mt-8 md:mt-10"
-              initial={{ opacity: 0, y: 24, scale: 0.98 }}
-              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.55, ease: [0.4, 0, 0.2, 1] }}
+              className="relative mt-10 md:mt-14"
+              variants={itemVariants}
             >
-              <p className="text-xs font-medium tracking-[0.15em] uppercase mb-3" style={{ color: 'hsl(var(--text-muted))' }}>
-                התוצאה
-              </p>
-              <p className="text-base sm:text-lg md:text-xl font-normal leading-relaxed">
-                פערים בכוח, פציעות חוזרות, ותחושה שהגוף לא תומך בעבודה האמנותית.
-              </p>
+              <div className="absolute -right-4 top-0 bottom-0 w-[3px] bg-gradient-to-b from-foreground via-foreground/50 to-transparent rounded-full" />
+              <div className="pr-8 py-6">
+                <p className="text-eyebrow mb-4">
+                  התוצאה
+                </p>
+                <p className="text-xl md:text-2xl font-normal leading-relaxed text-foreground">
+                  פערים בכוח, פציעות חוזרות, ותחושה שהגוף לא תומך בעבודה האמנותית.
+                </p>
+              </div>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
