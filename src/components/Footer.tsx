@@ -6,95 +6,50 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-primary-foreground" dir="rtl">
-      <div className="px-4 sm:px-6 md:px-12 lg:px-16 py-12 sm:py-16 md:py-20 max-w-6xl mx-auto">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-16">
-          {/* Logo & Description */}
+    <footer className="bg-primary text-primary-foreground relative overflow-hidden" dir="rtl">
+      {/* Subtle pattern */}
+      <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` }} />
+
+      <div className="px-4 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20 md:py-24 max-w-6xl mx-auto relative">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 mb-16 md:mb-20">
           <div className="sm:col-span-2">
-            <img 
-              src={sfdLogo} 
-              alt="SFD - Strength For Dancers" 
-              className="h-6 sm:h-7 md:h-8 w-auto mb-4 md:mb-6 invert"
-            />
-            <p className="text-primary-foreground/70 text-sm sm:text-base leading-relaxed max-w-md">
+            <img src={sfdLogo} alt="SFD - Strength For Dancers" className="h-6 md:h-7 w-auto mb-5 md:mb-6 invert" />
+            <p className="text-primary-foreground/60 text-sm sm:text-base leading-relaxed max-w-md">
               שיטת אימון כוח מקצועית ייעודית לרקדנים.
               בונים בסיס כוח שמשרת את התנועה הרקדנית.
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h4 className="text-xs sm:text-sm font-medium uppercase tracking-wider mb-4 md:mb-6 text-primary-foreground/50">
-              ניווט
-            </h4>
-            <nav className="space-y-2 sm:space-y-3">
-              <Link 
-                to="/" 
-                className="block text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-              >
-                עמוד הבית
-              </Link>
-              <Link 
-                to="/about" 
-                className="block text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-              >
-                אודות השיטה
-              </Link>
-              <Link 
-                to="/product" 
-                className="block text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-              >
-                ערכת האימון
-              </Link>
-              <Link 
-                to="/auth" 
-                className="block text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-              >
-                אזור אישי
-              </Link>
+            <h4 className="text-xs font-medium tracking-[0.15em] uppercase mb-5 md:mb-6 text-primary-foreground/40">ניווט</h4>
+            <nav className="space-y-3">
+              {[{ to: "/", label: "עמוד הבית" }, { to: "/about", label: "אודות השיטה" }, { to: "/product", label: "ערכת האימון" }, { to: "/auth", label: "אזור אישי" }].map((link) => (
+                <Link key={link.to} to={link.to} className="block text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors duration-300">{link.label}</Link>
+              ))}
             </nav>
           </div>
 
-          {/* Contact */}
           <div>
-            <h4 className="text-xs sm:text-sm font-medium uppercase tracking-wider mb-4 md:mb-6 text-primary-foreground/50">
-              יצירת קשר
-            </h4>
-            <div className="space-y-3 sm:space-y-4">
-              <a 
-                href="mailto:contact@sfd.co.il" 
-                className="flex items-center gap-3 text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-              >
-                <Mail className="w-4 h-4 flex-shrink-0" />
+            <h4 className="text-xs font-medium tracking-[0.15em] uppercase mb-5 md:mb-6 text-primary-foreground/40">יצירת קשר</h4>
+            <div className="space-y-4">
+              <a href="mailto:contact@sfd.co.il" className="flex items-center gap-3 text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors duration-300 group">
+                <Mail className="w-4 h-4 flex-shrink-0 transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5} />
                 <span>contact@sfd.co.il</span>
               </a>
-              <a 
-                href="https://instagram.com/strengthfordancers" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-sm sm:text-base text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-              >
-                <Instagram className="w-4 h-4 flex-shrink-0" />
+              <a href="https://instagram.com/strengthfordancers" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors duration-300 group">
+                <Instagram className="w-4 h-4 flex-shrink-0 transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5} />
                 <span>@strengthfordancers</span>
               </a>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-6 md:pt-8 border-t border-primary-foreground/10">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
-            <p className="text-xs sm:text-sm text-primary-foreground/50 text-center sm:text-right">
-              © {currentYear} SFD - Strength For Dancers. כל הזכויות שמורות.
-            </p>
-            <div className="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm text-primary-foreground/50">
-              <Link to="/terms" className="hover:text-primary-foreground/70 transition-colors">
-                תנאי שימוש
-              </Link>
-              <Link to="/privacy" className="hover:text-primary-foreground/70 transition-colors">
-                מדיניות פרטיות
-              </Link>
+        <div className="pt-8 border-t border-primary-foreground/10">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-primary-foreground/40 text-center sm:text-right">© {currentYear} SFD - Strength For Dancers. כל הזכויות שמורות.</p>
+            <div className="flex items-center gap-6 text-xs text-primary-foreground/40">
+              <Link to="/terms" className="hover:text-primary-foreground/60 transition-colors duration-300">תנאי שימוש</Link>
+              <Link to="/privacy" className="hover:text-primary-foreground/60 transition-colors duration-300">מדיניות פרטיות</Link>
             </div>
           </div>
         </div>
