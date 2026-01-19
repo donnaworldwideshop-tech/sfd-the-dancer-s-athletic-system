@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import dancerHero from "@/assets/dancer-hero-new.png";
+import dancerPose1 from "@/assets/dancer-pose-1.png";
+import dancerPose2 from "@/assets/dancer-pose-2.png";
 import { ArrowDown } from "lucide-react";
 
 const HeroSection = () => {
@@ -20,9 +22,9 @@ const HeroSection = () => {
       {/* Background */}
       <div className="absolute inset-0 bg-background" />
       
-      {/* Main dancer image - positioned on the left side of screen (right in RTL) */}
+      {/* Main dancer image - positioned on the left side */}
       <motion.div 
-        className="absolute top-0 bottom-0 left-0 w-full md:w-[60%] lg:w-[55%]"
+        className="absolute top-0 bottom-0 left-0 w-[45%] md:w-[40%] lg:w-[35%]"
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
@@ -30,16 +32,44 @@ const HeroSection = () => {
         <img 
           src={dancerHero} 
           alt="Dancer" 
-          className="h-full w-full object-cover object-[70%_center]"
+          className="h-full w-full object-cover object-[60%_center]"
         />
-        {/* Gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-background" />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-background/80" />
       </motion.div>
 
-      {/* Content - positioned on the right side of screen (left in RTL) */}
+      {/* Small image grid - right side thumbnails */}
+      <div className="absolute top-1/2 -translate-y-1/2 left-[38%] md:left-[35%] hidden lg:flex flex-col gap-3">
+        <motion.div 
+          className="w-28 h-36 overflow-hidden bg-card"
+          initial={{ opacity: 0, x: -20 }}
+          animate={isVisible ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.8 }}
+        >
+          <img 
+            src={dancerPose1} 
+            alt="Dancer pose 1" 
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </motion.div>
+        <motion.div 
+          className="w-28 h-36 overflow-hidden bg-card"
+          initial={{ opacity: 0, x: -20 }}
+          animate={isVisible ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.95 }}
+        >
+          <img 
+            src={dancerPose2} 
+            alt="Dancer pose 2" 
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </motion.div>
+      </div>
+
+      {/* Content - right side */}
       <div className="relative z-10 min-h-screen flex items-center">
         <div className="w-full px-8 md:px-16 lg:px-24">
-          <div className="mr-auto md:mr-0 md:ml-auto max-w-2xl lg:max-w-3xl">
+          <div className="mr-auto md:mr-0 md:ml-auto max-w-2xl lg:max-w-xl xl:max-w-2xl">
             {/* Small label */}
             <motion.p 
               className="text-xs md:text-sm font-medium tracking-[0.25em] uppercase text-foreground/50 mb-8 md:mb-10"
@@ -53,7 +83,7 @@ const HeroSection = () => {
             {/* Large display text */}
             <div className="mb-10 md:mb-14">
               <motion.h1 
-                className="text-[3.5rem] sm:text-[4.5rem] md:text-[6rem] lg:text-[7.5rem] xl:text-[9rem] font-extralight leading-[0.9] tracking-tight text-foreground"
+                className="text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[6.5rem] xl:text-[8rem] font-extralight leading-[0.9] tracking-tight text-foreground"
                 style={{ letterSpacing: '-0.04em' }}
                 initial={{ opacity: 0, y: 50 }}
                 animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -62,7 +92,7 @@ const HeroSection = () => {
                 רקדן
               </motion.h1>
               <motion.div 
-                className="text-[3.5rem] sm:text-[4.5rem] md:text-[6rem] lg:text-[7.5rem] xl:text-[9rem] font-extralight leading-[0.9] tracking-tight"
+                className="text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[6.5rem] xl:text-[8rem] font-extralight leading-[0.9] tracking-tight"
                 style={{ 
                   letterSpacing: '-0.04em',
                   WebkitTextStroke: '1.5px hsl(0 0% 8% / 0.3)',
@@ -123,7 +153,7 @@ const HeroSection = () => {
       {/* Scroll indicator */}
       <motion.button 
         onClick={scrollToContent}
-        className="absolute right-8 md:right-16 bottom-32 z-20 w-12 h-12 rounded-full border border-foreground/15 flex items-center justify-center bg-background/50 backdrop-blur-sm hover:border-foreground/30 hover:bg-background/80 transition-all duration-300"
+        className="absolute left-1/2 -translate-x-1/2 bottom-32 z-20 w-12 h-12 rounded-full border border-foreground/15 flex items-center justify-center bg-background/50 backdrop-blur-sm hover:border-foreground/30 hover:bg-background/80 transition-all duration-300"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.3, duration: 0.6 }}
