@@ -1,0 +1,105 @@
+{
+  "general": {
+    "404": {
+      "title": "הדף לא נמצא",
+      "subtext": "הדף שביקשת אינו קיים."
+    },
+    "accessibility": {
+      "skip_to_text": "דלג לתוכן",
+      "refresh_page": "בחירה בבחירה גורמת לרענון מלא של הדף",
+      "link_messages": {
+        "new_window": "נפתח בחלון חדש."
+      }
+    },
+    "meta": {
+      "tags": "מתויג \"{{ tags }}\"",
+      "page": "עמוד {{ page }}"
+    },
+    "search": {
+      "title": "חיפוש",
+      "placeholder": "חפש",
+      "submit": "חפש"
+    },
+    "newsletter_form": {
+      "newsletter_email": "אימייל",
+      "submit": "הרשמה",
+      "confirmation": "תודה על ההרשמה"
+    },
+    "social": {
+      "share_on_facebook": "שתף בפייסבוק",
+      "share_on_twitter": "צייץ בטוויטר",
+      "share_on_pinterest": "פרסם בפינטרסט"
+    }
+  },
+  "blogs": {
+    "article": {
+      "by_author": "מאת {{ author }}",
+      "posted_in": "פורסם ב",
+      "tags": "תגיות:",
+      "read_more": "קרא עוד",
+      "back_to_blog": "חזרה ל{{ title }}"
+    },
+    "comments": {
+      "title": "תגובות",
+      "success": "התגובה שלך פורסמה בהצלחה! תודה!",
+      "with_count": {
+        "one": "תגובה אחת",
+        "other": "{{ count }} תגובות"
+      }
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "העגלה שלך",
+      "remove": "הסר",
+      "note": "הוראות מיוחדות למוכר",
+      "subtotal": "סכום ביניים",
+      "taxes_and_shipping": "מיסים ומשלוח יחושבו בקופה",
+      "update": "עדכן עגלה",
+      "checkout": "המשך לקופה",
+      "empty": "העגלה שלך ריקה כרגע.",
+      "continue_shopping": "המשך בקניות",
+      "close_cart": "סגור עגלה"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "הוסף לעגלה",
+      "sold_out": "אזל מהמלאי",
+      "unavailable": "לא זמין",
+      "quantity": "כמות",
+      "price": {
+        "from_price_html": "החל מ {{ price }}",
+        "regular_price": "מחיר רגיל",
+        "sale_price": "מחיר מבצע"
+      }
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "החשבון שלי",
+      "details": "פרטי חשבון",
+      "view_addresses": "צפה בכתובות",
+      "return": "חזור לפרטי החשבון"
+    },
+    "login": {
+      "title": "כניסה",
+      "email": "אימייל",
+      "password": "סיסמה",
+      "forgot_password": "שכחת את הסיסמה?",
+      "sign_in": "התחבר",
+      "cancel": "ביטול",
+      "guest_title": "המשך כאורח",
+      "guest_continue": "המשך"
+    },
+    "orders": {
+      "title": "היסטוריית הזמנות",
+      "order_number": "הזמנה",
+      "date": "תאריך",
+      "payment_status": "סטטוס תשלום",
+      "fulfillment_status": "סטטוס משלוח",
+      "total": "סה\"כ",
+      "none": "עדיין לא ביצעת הזמנות."
+    }
+  }
+}

@@ -1,0 +1,215 @@
+{% comment %}
+  Testimonials Section - Converted from React TestimonialsSection component
+  Displays customer testimonials with carousel functionality
+{% endcomment %}
+
+<section class="testimonials-section py-16 sm:py-20 md:py-28 lg:py-36 px-4 sm:px-6 md:px-12 lg:px-16 bg-card" dir="rtl">
+  <div class="max-w-6xl mx-auto">
+    {% if section.settings.heading != blank %}
+      <div class="text-center mb-12 md:mb-16">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-light leading-snug mb-4">
+          {{ section.settings.heading }}
+        </h2>
+        {% if section.settings.subheading != blank %}
+          <p class="text-base sm:text-lg text-secondary-foreground max-w-2xl mx-auto">
+            {{ section.settings.subheading }}
+          </p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="testimonials-carousel relative">
+      {% for block in section.blocks %}
+        <div class="testimonial-card {% if forloop.index == 1 %}active{% endif %}" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+          <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            {% if block.settings.image != blank %}
+              <div class="order-2 md:order-1">
+                <div class="aspect-square rounded-sm overflow-hidden">
+                  {{ block.settings.image | image_url: width: 600 | image_tag: class: 'w-full h-full object-cover', alt: block.settings.name }}
+                </div>
+              </div>
+            {% endif %}
+            
+            <div class="order-1 md:order-2 {% unless block.settings.image != blank %}md:col-span-2{% endunless %}">
+              <div class="mb-6">
+                <svg class="w-10 h-10 md:w-12 md:h-12 text-primary/20" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                </svg>
+              </div>
+              
+              {% if block.settings.quote != blank %}
+                <blockquote class="text-lg sm:text-xl md:text-2xl font-light leading-relaxed mb-6">
+                  "{{ block.settings.quote }}"
+                </blockquote>
+              {% endif %}
+              
+              {% if block.settings.extended_quote != blank %}
+                <p class="text-base sm:text-lg text-secondary-foreground font-light leading-relaxed mb-6">
+                  {{ block.settings.extended_quote }}
+                </p>
+              {% endif %}
+              
+              <div class="border-t border-border pt-6">
+                {% if block.settings.name != blank %}
+                  <p class="font-normal text-base sm:text-lg mb-1">{{ block.settings.name }}</p>
+                {% endif %}
+                {% if block.settings.title != blank %}
+                  <p class="text-sm sm:text-base text-secondary-foreground">{{ block.settings.title }}</p>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+      {% if section.blocks.size > 1 %}
+        <div class="flex items-center justify-center gap-4 mt-12">
+          <button type="button" class="testimonial-prev p-3 rounded-full border border-border hover:bg-card hover:border-foreground/20 transition-all" aria-label="Previous testimonial">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+          </button>
+          
+          <div class="flex gap-2">
+            {% for block in section.blocks %}
+              <button type="button" class="testimonial-dot w-2 h-2 rounded-full bg-foreground/20 transition-all {% if forloop.index == 1 %}active{% endif %}" data-index="{{ forloop.index0 }}" aria-label="Go to testimonial {{ forloop.index }}"></button>
+            {% endfor %}
+          </div>
+          
+          <button type="button" class="testimonial-next p-3 rounded-full border border-border hover:bg-card hover:border-foreground/20 transition-all" aria-label="Next testimonial">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonial-card {
+    display: none;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .testimonial-card.active {
+    display: block;
+  }
+
+  .testimonial-dot.active {
+    background-color: hsl(var(--primary));
+    width: 2rem;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.testimonial-card');
+    const dots = document.querySelectorAll('.testimonial-dot');
+    const prevBtn = document.querySelector('.testimonial-prev');
+    const nextBtn = document.querySelector('.testimonial-next');
+    let currentIndex = 0;
+
+    function showTestimonial(index) {
+      cards.forEach(card => card.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+      
+      if (cards[index]) {
+        cards[index].classList.add('active');
+        dots[index].classList.add('active');
+        currentIndex = index;
+      }
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function() {
+        const newIndex = currentIndex === 0 ? cards.length - 1 : currentIndex - 1;
+        showTestimonial(newIndex);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function() {
+        const newIndex = currentIndex === cards.length - 1 ? 0 : currentIndex + 1;
+        showTestimonial(newIndex);
+      });
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', function() {
+        const index = parseInt(this.dataset.index);
+        showTestimonial(index);
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Testimonials Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "מה אומרים עלינו"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Main Quote"
+        },
+        {
+          "type": "textarea",
+          "id": "extended_quote",
+          "label": "Extended Quote"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials Section"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,139 @@
+{
+  "sections": {
+    "hero-section": {
+      "type": "hero-section",
+      "settings": {
+        "tagline": "SFD - STRENGTH FOR DANCERS",
+        "heading": "רקדן הוא ספורטאי.",
+        "subheading": "הגוף של הרקדן דורש אימון מקצועי.",
+        "show_scroll_indicator": true
+      }
+    },
+    "studios-section": {
+      "type": "studios-section",
+      "settings": {
+        "tagline": "שיתופי פעולה",
+        "heading": "סטודיואים שעובדים איתנו"
+      },
+      "blocks": {
+        "studio-1": {
+          "type": "studio",
+          "settings": {
+            "name": "Studio 1"
+          }
+        },
+        "studio-2": {
+          "type": "studio",
+          "settings": {
+            "name": "Studio 2"
+          }
+        },
+        "studio-3": {
+          "type": "studio",
+          "settings": {
+            "name": "Studio 3"
+          }
+        },
+        "studio-4": {
+          "type": "studio",
+          "settings": {
+            "name": "Studio 4"
+          }
+        }
+      },
+      "block_order": [
+        "studio-1",
+        "studio-2",
+        "studio-3",
+        "studio-4"
+      ]
+    },
+    "gap-section": {
+      "type": "gap-section",
+      "settings": {
+        "heading": "הבעיה שאנחנו פותרים"
+      },
+      "blocks": {
+        "content-1": {
+          "type": "content",
+          "settings": {
+            "text": "רקדנים עובדים תחת עומסים קיצוניים, דורשים דיוק מוחלט, שליטה גבוהה ותנועה אינטנסיבית יום-יום."
+          }
+        },
+        "content-2": {
+          "type": "content",
+          "settings": {
+            "highlight_text": "כשמערכת האימון אינה מותאמת למציאות הזו - הגוף משלם מחיר: פציעות, חוסר יציבות, ירידה בביצועים ולעיתים גם עצירה בהתפתחות המקצועית."
+          }
+        }
+      },
+      "block_order": [
+        "content-1",
+        "content-2"
+      ]
+    },
+    "method-section": {
+      "type": "method-section",
+      "settings": {
+        "section_title": "הגישה",
+        "heading": "SFD היא שיטת אימון כוח\nייעודית לרקדנים.",
+        "description": "השיטה מבוססת על עקרונות מקצועיים מעולם אימון הכוח, ומתורגמת לצרכים הפיזיים והמבניים של גוף רקדן."
+      },
+      "blocks": {
+        "feature-1": {
+          "type": "feature",
+          "settings": {
+            "title": "מותאמת לעולם הריקוד",
+            "description": "לא כושר כללי, אלא עבודה שמבינה טכניקה, עומסים ותנועה."
+          }
+        },
+        "feature-2": {
+          "type": "feature",
+          "settings": {
+            "title": "מתאימה לשלבי התפתחות שונים",
+            "description": "השיטה נבנתה כך שניתן לעבוד לפיה ברמות שונות - מרקדנים צעירים ועד רקדנים פעילים ומתקדמים."
+          }
+        }
+      },
+      "block_order": [
+        "feature-1",
+        "feature-2"
+      ]
+    },
+    "application-section": {
+      "type": "application-section",
+      "settings": {
+        "tagline": "יישום",
+        "heading": "איך השיטה עובדת",
+        "description": "מערכת מקצועית שנבנתה במיוחד לרקדנים"
+      }
+    },
+    "testimonials-section": {
+      "type": "testimonials-section",
+      "settings": {
+        "heading": "מה אומרים עלינו",
+        "subheading": "רקדנים שעבדו עם השיטה משתפים בחוויה שלהם"
+      }
+    },
+    "cta-section": {
+      "type": "cta-section",
+      "settings": {
+        "heading": "מוכנים להתחיל?",
+        "description": "הצטרפו לשיטת SFD והתחילו לבנות בסיס כוח מקצועי שישרת את התנועה הרקדנית שלכם.",
+        "primary_button_text": "לערכת האימון",
+        "primary_button_link": "/pages/product",
+        "secondary_button_text": "קראו עוד",
+        "secondary_button_link": "/pages/about"
+      }
+    }
+  },
+  "order": [
+    "hero-section",
+    "studios-section",
+    "gap-section",
+    "method-section",
+    "application-section",
+    "testimonials-section",
+    "cta-section"
+  ]
+}

@@ -1,0 +1,6 @@
+{% comment %}
+  Meta Tags snippet
+  Generates standard meta tags for SEO
+{% endcomment %}
+
+<meta name="description" content="{{ page_description | default: shop.description | default: shop.name }}">

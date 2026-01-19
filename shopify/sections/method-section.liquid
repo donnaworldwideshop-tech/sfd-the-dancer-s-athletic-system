@@ -1,0 +1,149 @@
+{% comment %}
+  Method Section - Converted from React MethodSection component
+  Displays the SFD method with features
+{% endcomment %}
+
+<section class="method-section py-16 sm:py-20 md:py-28 lg:py-36 px-4 sm:px-6 md:px-12 lg:px-16 bg-primary text-primary-foreground" dir="rtl">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-10 md:gap-16 lg:gap-24">
+      <div class="fade-in-section">
+        {% if section.settings.section_title != blank %}
+          <p class="text-xs sm:text-sm font-normal tracking-wide uppercase mb-4 md:mb-6 text-primary-foreground/60">
+            {{ section.settings.section_title }}
+          </p>
+        {% endif %}
+        
+        {% if section.settings.heading != blank %}
+          <h2 class="text-xl sm:text-2xl md:text-3xl font-light leading-snug mb-6 md:mb-8">
+            {{ section.settings.heading }}
+          </h2>
+        {% endif %}
+        
+        {% if section.settings.description != blank %}
+          <p class="text-sm sm:text-base md:text-lg font-light leading-relaxed text-primary-foreground/70">
+            {{ section.settings.description }}
+          </p>
+        {% endif %}
+      </div>
+      
+      <div class="space-y-4 md:space-y-6">
+        {% for block in section.blocks %}
+          <div class="feature-card p-5 sm:p-6 bg-primary-foreground/10 rounded-sm border border-primary-foreground/10 hover:border-primary-foreground/20 transition-colors" {{ block.shopify_attributes }}>
+            {% if block.settings.icon != blank %}
+              <div class="mb-3">
+                {{ block.settings.icon | image_url: width: 32 | image_tag: class: 'w-6 h-6 text-primary-foreground' }}
+              </div>
+            {% endif %}
+            
+            {% if block.settings.title != blank %}
+              <h3 class="text-base sm:text-lg font-normal mb-3">
+                {{ block.settings.title }}
+              </h3>
+            {% endif %}
+            
+            {% if block.settings.description != blank %}
+              <p class="text-sm sm:text-base font-light leading-relaxed text-primary-foreground/70">
+                {{ block.settings.description }}
+              </p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .feature-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+
+  .feature-card:nth-child(1) { animation-delay: 0.2s; }
+  .feature-card:nth-child(2) { animation-delay: 0.35s; }
+  .feature-card:nth-child(3) { animation-delay: 0.5s; }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Method Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "הגישה"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "SFD היא שיטת אימון כוח ייעודית לרקדנים."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "השיטה מבוססת על עקרונות מקצועיים מעולם אימון הכוח, ומתורגמת לצרכים הפיזיים והמבניים של גוף רקדן."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Method Section",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "title": "מותאמת לעולם הריקוד",
+            "description": "לא כושר כללי, אלא עבודה שמבינה טכניקה, עומסים ותנועה."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "מתאימה לשלבי התפתחות שונים",
+            "description": "השיטה נבנתה כך שניתן לעבוד לפיה ברמות שונות - מרקדנים צעירים ועד רקדנים פעילים ומתקדמים."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
