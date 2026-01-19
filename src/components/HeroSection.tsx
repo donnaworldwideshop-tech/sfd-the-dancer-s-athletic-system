@@ -1,20 +1,13 @@
 import { useEffect, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import dancerHero from "@/assets/dancer-hero.png";
-import { ChevronDown } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const { scrollY } = useScroll();
-  
-  // Parallax effect for hero image
-  const imageY = useTransform(scrollY, [0, 800], [0, 200]);
-  const imageScale = useTransform(scrollY, [0, 800], [1, 1.1]);
-  const contentOpacity = useTransform(scrollY, [0, 400], [1, 0]);
-  const contentY = useTransform(scrollY, [0, 400], [0, 60]);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 150);
+    const timer = setTimeout(() => setIsVisible(true), 100);
     return () => clearTimeout(timer);
   }, []);
 
@@ -23,119 +16,117 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-[100svh] relative flex items-center justify-center overflow-hidden">
-      {/* Dramatic Background */}
-      <div className="absolute inset-0 z-0">
-        {/* Image with parallax */}
-        <motion.div
-          className="absolute inset-0"
-          style={{ y: imageY, scale: imageScale }}
-        >
-          <motion.img 
-            src={dancerHero} 
-            alt="Dancer" 
-            className="w-full h-full object-cover object-[20%_top] sm:object-[40%_center] md:object-[30%_center]"
-            initial={{ scale: 1.2, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
-          />
-        </motion.div>
-        
-        {/* Multi-layer gradient for depth and contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/30 md:bg-gradient-to-l md:from-background md:via-background/85 md:to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-transparent" />
-        
-        {/* Subtle vignette */}
-        <div className="absolute inset-0" style={{
-          background: 'radial-gradient(ellipse at center, transparent 40%, hsl(var(--background) / 0.3) 100%)'
-        }} />
-        
-        {/* Noise texture */}
-        <div className="noise-overlay" />
-      </div>
+    <section className="min-h-screen relative flex items-end pb-16 md:pb-24 overflow-hidden">
+      {/* Clean cream background */}
+      <div className="absolute inset-0 bg-background" />
       
-      {/* Content with parallax */}
+      {/* Main dancer image - positioned right */}
       <motion.div 
-        className="section-container relative z-10 pt-20 md:pt-0 flex items-center justify-center"
-        style={{ opacity: contentOpacity, y: contentY }}
+        className="absolute bottom-0 left-0 md:left-auto md:right-[5%] w-full md:w-[55%] h-[70%] md:h-[85%]"
+        initial={{ opacity: 0, scale: 1.05 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
       >
-        <div className="max-w-2xl text-center" dir="rtl">
-          {/* Animated eyebrow */}
-          <motion.div
-            className="inline-block mb-8 md:mb-10"
-            initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
-            animate={isVisible ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <span className="text-eyebrow inline-flex items-center gap-3">
-              <span className="w-8 h-px bg-current opacity-50" />
-              SFD — STRENGTH FOR DANCERS
-              <span className="w-8 h-px bg-current opacity-50" />
-            </span>
-          </motion.div>
-          
-          {/* Main Headline with dramatic reveal */}
-          <div className="overflow-hidden mb-6 md:mb-8">
-            <motion.h1 
-              className="text-hero-display text-balance"
-              initial={{ opacity: 0, y: 80 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            >
-              רקדן הוא ספורטאי.
-            </motion.h1>
-          </div>
-          
-          {/* Subheadline */}
+        <img 
+          src={dancerHero} 
+          alt="Dancer" 
+          className="w-full h-full object-contain object-bottom"
+        />
+      </motion.div>
+
+      {/* Content overlay */}
+      <div className="section-container relative z-10 w-full">
+        <div className="max-w-3xl" dir="rtl">
+          {/* Small label */}
           <motion.p 
-            className="text-xl sm:text-2xl md:text-3xl font-light leading-relaxed text-foreground/70"
-            initial={{ opacity: 0, y: 40 }}
+            className="text-label mb-6 md:mb-8"
+            initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.9, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            הגוף של הרקדן דורש אימון מקצועי.
+            • STRENGTH FOR DANCERS
           </motion.p>
-          
-          {/* Decorative line */}
+
+          {/* Large display text - mixed solid and outline */}
+          <div className="mb-8 md:mb-12">
+            <motion.h1 
+              className="text-display mb-2"
+              initial={{ opacity: 0, y: 40 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              רקדן
+            </motion.h1>
+            <motion.div 
+              className="text-display-outline"
+              initial={{ opacity: 0, y: 40 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              הוא ספורטאי
+            </motion.div>
+          </div>
+
+          {/* Subtitle with line */}
           <motion.div 
-            className="w-px h-16 md:h-24 bg-gradient-to-b from-foreground/30 to-transparent mx-auto mt-12 md:mt-16"
-            initial={{ scaleY: 0, opacity: 0 }}
-            animate={isVisible ? { scaleY: 1, opacity: 1 } : {}}
-            transition={{ duration: 1, delay: 1, ease: [0.16, 1, 0.3, 1] }}
-            style={{ transformOrigin: 'top' }}
-          />
+            className="flex items-start gap-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.6 }}
+          >
+            <div className="w-12 h-px bg-foreground/30 mt-3 flex-shrink-0" />
+            <p className="text-body-lg max-w-md">
+              הגוף של הרקדן דורש אימון כוח מקצועי,
+              מותאם לצרכים הייחודיים של התנועה הרקדנית.
+            </p>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Stats bar at bottom */}
+      <motion.div 
+        className="absolute bottom-0 left-0 right-0 bg-background/80 backdrop-blur-premium border-t border-border/30"
+        initial={{ opacity: 0, y: 40 }}
+        animate={isVisible ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.7, delay: 0.9 }}
+      >
+        <div className="section-container py-6">
+          <div className="flex items-center justify-between md:justify-start gap-8 md:gap-16" dir="rtl">
+            <div className="flex items-center gap-4">
+              <span className="text-3xl md:text-4xl font-extralight number-display">100+</span>
+              <span className="text-xs text-muted-foreground">רקדניות<br />בתוכנית</span>
+            </div>
+            <div className="hidden sm:block w-px h-8 bg-border/50" />
+            <div className="flex items-center gap-4">
+              <span className="text-3xl md:text-4xl font-extralight number-display">5+</span>
+              <span className="text-xs text-muted-foreground">שנות<br />ניסיון</span>
+            </div>
+            <div className="hidden sm:block w-px h-8 bg-border/50" />
+            <div className="hidden md:flex items-center gap-4">
+              <span className="text-3xl md:text-4xl font-extralight number-display">4</span>
+              <span className="text-xs text-muted-foreground">סטודיואים<br />שותפים</span>
+            </div>
+          </div>
         </div>
       </motion.div>
 
-      {/* Premium scroll indicator */}
-      <motion.div 
-        className="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 z-10"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      {/* Scroll indicator */}
+      <motion.button 
+        onClick={scrollToContent}
+        className="absolute left-1/2 -translate-x-1/2 bottom-32 md:bottom-28 z-20 scroll-indicator"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+        whileHover={{ scale: 1.05 }}
+        aria-label="גלול למטה"
       >
-        <motion.button 
-          onClick={scrollToContent}
-          className="group flex flex-col items-center gap-2 cursor-pointer"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          aria-label="גלול למטה"
+        <motion.div
+          animate={{ y: [0, 4, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
         >
-          <span className="text-[10px] font-medium tracking-[0.2em] uppercase text-foreground/40 group-hover:text-foreground/60 transition-colors">
-            גלול
-          </span>
-          <motion.div 
-            className="w-10 h-10 rounded-full border border-foreground/20 flex items-center justify-center group-hover:border-foreground/40 group-hover:bg-foreground/5 transition-all"
-            animate={{ y: [0, 6, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          >
-            <ChevronDown className="w-4 h-4 text-foreground/50 group-hover:text-foreground/70 transition-colors" />
-          </motion.div>
-        </motion.button>
-      </motion.div>
-
-      {/* Bottom gradient for seamless transition */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background via-background/80 to-transparent z-[5] pointer-events-none" />
+          <ArrowDown className="w-4 h-4 text-foreground/50" strokeWidth={1.5} />
+        </motion.div>
+      </motion.button>
     </section>
   );
 };
