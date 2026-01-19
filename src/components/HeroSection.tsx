@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import dancerHero from "@/assets/dancer-hero.png";
+import dancerHero from "@/assets/dancer-hero-new.png";
 import { ArrowDown } from "lucide-react";
 
 const HeroSection = () => {
