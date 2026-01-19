@@ -25,153 +25,109 @@ const Header = () => {
   }, [location.pathname]);
 
   const navLinks = [
-    { to: "/about", label: "אודות" },
-    { to: "/product", label: "ערכת האימון" },
+    { to: "/about", label: "השיטה" },
+    { to: "/product", label: "הערכה" },
+    { to: "/#testimonials", label: "יתרונות" },
+    { to: "/#contact", label: "צור קשר" },
   ];
 
   return (
     <motion.header 
       className={`fixed top-0 right-0 left-0 z-50 transition-all duration-500 ${
         isScrolled 
-          ? "py-4 bg-background/90 backdrop-blur-premium border-b border-border/30" 
-          : "py-6 md:py-8 bg-transparent"
+          ? "py-4 bg-white/95 backdrop-blur-sm border-b border-border/50" 
+          : "py-6 bg-transparent"
       }`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
     >
-      <nav className="section-container flex items-center justify-between">
+      <nav className="section-container flex items-center justify-between" dir="rtl">
         
-        {/* Mobile Layout */}
-        <div className="flex md:hidden items-center justify-between w-full">
-          {/* Right - Menu Toggle */}
-          <motion.button 
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? "סגור תפריט" : "פתח תפריט"}
-            className="p-2 -m-2"
-            whileTap={{ scale: 0.95 }}
-          >
-            <AnimatePresence mode="wait">
-              {isMenuOpen ? (
-                <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <X className="w-5 h-5" strokeWidth={1} />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Menu className="w-5 h-5" strokeWidth={1} />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.button>
-          
-          {/* Center Logo */}
-          <Link 
-            to="/" 
-            className="absolute left-1/2 -translate-x-1/2"
-          >
-            <img 
-              src={sfdLogo} 
-              alt="SFD" 
-              className="h-4"
-            />
-          </Link>
-          
-          {/* Left - User */}
-          <Link 
-            to={user ? "/members" : "/auth"} 
-            aria-label={user ? 'אזור אישי' : 'כניסה'}
-            className="p-2 -m-2"
-          >
-            <User className="w-5 h-5 text-foreground/60" strokeWidth={1} />
-          </Link>
-        </div>
+        {/* Logo */}
+        <Link to="/" className="z-10">
+          <img 
+            src={sfdLogo} 
+            alt="SFD" 
+            className="h-6 md:h-7"
+          />
+        </Link>
 
-        {/* Desktop Layout */}
-        {/* Right - Navigation */}
-        <div className="hidden md:flex items-center gap-8" dir="rtl">
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <Link 
               key={link.to}
               to={link.to} 
-              className="text-sm font-light text-foreground/60 hover:text-foreground transition-colors duration-300 link-hover"
+              className="text-sm font-normal text-foreground/70 hover:text-foreground transition-colors duration-300"
             >
               {link.label}
             </Link>
           ))}
-          {isHomePage ? (
-            <a 
-              href="#contact" 
-              className="text-sm font-light text-foreground/60 hover:text-foreground transition-colors duration-300 link-hover"
-            >
-              צור קשר
-            </a>
-          ) : (
-            <Link 
-              to="/#contact" 
-              className="text-sm font-light text-foreground/60 hover:text-foreground transition-colors duration-300 link-hover"
-            >
-              צור קשר
-            </Link>
-          )}
         </div>
 
-        {/* Center - Logo (Desktop) */}
+        {/* CTA Button - Desktop */}
         <Link 
-          to="/" 
-          className="hidden md:block absolute left-1/2 -translate-x-1/2"
+          to="/product" 
+          className="hidden md:inline-flex btn-primary py-3 px-6 text-xs"
         >
-          <img 
-            src={sfdLogo} 
-            alt="SFD" 
-            className="h-5"
-          />
+          לרכישת הערכה
         </Link>
 
-        {/* Left - Contact & User (Desktop) */}
-        <div className="hidden md:flex items-center gap-6">
-          <Link 
-            to={user ? "/members" : "/auth"} 
-            className="flex items-center gap-2 text-sm font-light text-foreground/60 hover:text-foreground transition-colors duration-300"
-          >
-            <span>{user ? 'אזור אישי' : 'כניסה'}</span>
-            <User className="w-4 h-4" strokeWidth={1} />
-          </Link>
-        </div>
+        {/* Mobile Menu Button */}
+        <motion.button 
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden p-2 -m-2 z-10"
+          whileTap={{ scale: 0.95 }}
+          aria-label={isMenuOpen ? "סגור תפריט" : "פתח תפריט"}
+        >
+          <AnimatePresence mode="wait">
+            {isMenuOpen ? (
+              <motion.div
+                key="close"
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <X className="w-6 h-6" strokeWidth={1.5} />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="menu"
+                initial={{ rotate: 90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: -90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Menu className="w-6 h-6" strokeWidth={1.5} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.button>
       </nav>
 
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
-            className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border/30"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="md:hidden fixed inset-0 top-0 bg-white z-40"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
           >
-            <div className="px-6 py-10 space-y-1" dir="rtl">
+            <div className="flex flex-col items-center justify-center min-h-screen gap-8" dir="rtl">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.to}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1, duration: 0.3 }}
                 >
                   <Link 
                     to={link.to} 
-                    className="block text-2xl font-extralight text-foreground py-4"
+                    className="text-2xl font-light text-foreground"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.label}
@@ -179,27 +135,17 @@ const Header = () => {
                 </motion.div>
               ))}
               <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2, duration: 0.3 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.3 }}
               >
-                {isHomePage ? (
-                  <a 
-                    href="#contact" 
-                    className="block text-2xl font-extralight text-foreground py-4"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    צור קשר
-                  </a>
-                ) : (
-                  <Link 
-                    to="/#contact" 
-                    className="block text-2xl font-extralight text-foreground py-4"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    צור קשר
-                  </Link>
-                )}
+                <Link 
+                  to="/product" 
+                  className="btn-primary mt-4"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  לרכישת הערכה
+                </Link>
               </motion.div>
             </div>
           </motion.div>

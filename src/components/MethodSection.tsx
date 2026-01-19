@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import dancerPose1 from "@/assets/dancer-pose-1.png";
 
 const MethodSection = () => {
   const ref = useRef(null);
@@ -10,85 +10,107 @@ const MethodSection = () => {
   const features = [
     {
       number: "01",
-      title: "מותאמת לעולם הריקוד",
-      description: "לא כושר כללי, אלא עבודה שמבינה טכניקה, עומסים ותנועה."
+      title: "מיקוד בשרירים הנכונים",
+      description: "אימונים מותאמים לצרכים הספציפיים של רקדנים - חיזוק הליבה, יציבות הקרסול, וגמישות מבוקרת."
     },
     {
       number: "02",
-      title: "מתאימה לשלבי התפתחות שונים",
-      description: "השיטה נבנתה לעבודה ברמות שונות - מרקדנים צעירים ועד רקדנים מתקדמים."
+      title: "מניעת פציעות",
+      description: "שיטה שפותחה על ידי מומחים למניעת הפציעות הנפוצות ביותר בקרב רקדנים."
     },
     {
       number: "03",
-      title: "מבוססת על עקרונות מקצועיים",
-      description: "הידע מגיע מעולם אימון הכוח והספורט, ומתורגם לשפה הרקדנית."
+      title: "שיפור ביצועים",
+      description: "עלייה ברמת הכוח והשליטה בגוף מובילה לביצועים טובים יותר על הבמה."
     }
   ];
 
   return (
     <section 
-      className="py-28 md:py-40 lg:py-52 bg-foreground text-background relative overflow-hidden" 
+      className="py-24 md:py-32 lg:py-40 bg-white" 
       dir="rtl" 
       ref={ref}
     >
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
-
-      <div className="section-container relative">
-        <div className="grid lg:grid-cols-2 gap-20 lg:gap-32">
-          {/* Left Column - Title & Description */}
+      <div className="section-container">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+          {/* Left Column - Content */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p className="text-label text-background/40 mb-8">• הגישה</p>
+            {/* Label with line */}
+            <div className="flex items-center gap-4 mb-8">
+              <span className="text-label">השיטה שלנו</span>
+              <div className="w-16 h-px bg-border" />
+            </div>
             
-            <h2 className="text-title mb-10 text-balance">
-              SFD היא שיטת אימון כוח
-              <span className="block text-background/50">ייעודית לרקדנים.</span>
+            <h2 className="text-title mb-2">
+              אימון כוח
             </h2>
+            <div className="text-title-outline mb-10">
+              מותאם לרקדנים
+            </div>
             
-            <p className="text-body-lg text-background/60 mb-12 max-w-md">
-              השיטה מבוססת על עקרונות מקצועיים מעולם אימון הכוח,
-              ומתורגמת לצרכים הפיזיים והמבניים של גוף רקדן.
+            <p className="text-body-lg mb-12 max-w-md">
+              השיטה שלנו פותחה במיוחד עבור רקדנים - לא סתם אימון כוח, אלא תוכנית מקצועית
+              שמבינה את הצרכים הייחודיים של הגוף הרוקד.
             </p>
             
-            <Link 
-              to="/about" 
-              className="inline-flex items-center gap-3 text-sm text-background/60 hover:text-background transition-colors duration-300 group"
-            >
-              <span>קראו עוד על השיטה</span>
-              <ArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" />
-            </Link>
-          </motion.div>
-          
-          {/* Right Column - Feature List */}
-          <div className="space-y-0">
-            {features.map((feature, index) => (
-              <motion.div 
-                key={index}
-                className="py-10 border-b border-background/10 first:pt-0 last:border-b-0"
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.2 + index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <div className="flex gap-8">
-                  <span className="text-sm text-background/30 number-display">
+            {/* Features with numbers */}
+            <div className="space-y-8">
+              {features.map((feature, index) => (
+                <motion.div 
+                  key={index}
+                  className="flex gap-6"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.2 + index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <span className="text-number">
                     {feature.number}
                   </span>
-                  <div>
-                    <h3 className="text-xl md:text-2xl font-light mb-4">
+                  <div className="flex-1 pt-2">
+                    <h3 className="text-lg font-semibold mb-2">
                       {feature.title}
                     </h3>
-                    <p className="text-body text-background/50">
+                    <p className="text-body">
                       {feature.description}
                     </p>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Stats */}
+            <motion.div 
+              className="flex items-center gap-8 mt-12 pt-8 border-t border-border"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="flex items-center gap-3">
+                <span className="text-4xl font-bold">+7</span>
+                <span className="text-sm text-muted-foreground">שנות פיתוח ומחקר</span>
+              </div>
+            </motion.div>
+          </motion.div>
+          
+          {/* Right Column - Image */}
+          <motion.div 
+            className="relative"
+            initial={{ opacity: 0, x: 40 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="aspect-[3/4] bg-muted overflow-hidden">
+              <img 
+                src={dancerPose1} 
+                alt="Dancer training" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
