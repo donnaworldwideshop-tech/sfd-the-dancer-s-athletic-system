@@ -80,6 +80,19 @@
 
   html {
     scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  @media (min-width: 1280px) {
+    html {
+      font-size: 17px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    html {
+      font-size: 18px;
+    }
   }
 
   body {
@@ -101,41 +114,41 @@
     @apply w-full max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-20;
   }
 
-  /* Elegant Typography - Light & Airy */
+  /* Elegant Typography - LARGER & More Impactful */
   .text-display {
-    @apply text-[3rem] sm:text-[4rem] md:text-[5rem] lg:text-[6.5rem] font-extralight leading-[0.95] tracking-tight;
-    letter-spacing: -0.03em;
+    @apply text-[4rem] sm:text-[5.5rem] md:text-[7rem] lg:text-[9rem] xl:text-[11rem] font-extralight leading-[0.9] tracking-tight;
+    letter-spacing: -0.04em;
   }
 
   .text-display-outline {
-    @apply text-[3rem] sm:text-[4rem] md:text-[5rem] lg:text-[6.5rem] font-extralight leading-[0.95] tracking-tight;
-    letter-spacing: -0.03em;
-    -webkit-text-stroke: 1px hsl(var(--foreground) / 0.3);
+    @apply text-[4rem] sm:text-[5.5rem] md:text-[7rem] lg:text-[9rem] xl:text-[11rem] font-extralight leading-[0.9] tracking-tight;
+    letter-spacing: -0.04em;
+    -webkit-text-stroke: 1.5px hsl(var(--foreground) / 0.25);
     -webkit-text-fill-color: transparent;
   }
 
   .text-title {
-    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1];
-    letter-spacing: -0.02em;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-[1.05];
+    letter-spacing: -0.025em;
   }
 
   .text-subtitle {
-    @apply text-xl sm:text-2xl md:text-3xl font-light leading-snug;
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light leading-snug;
     letter-spacing: -0.01em;
   }
 
   .text-body-lg {
-    @apply text-base sm:text-lg md:text-xl font-light leading-relaxed;
+    @apply text-lg sm:text-xl md:text-2xl font-light leading-relaxed;
     color: hsl(var(--text-secondary));
   }
 
   .text-body {
-    @apply text-sm sm:text-base font-light leading-relaxed;
+    @apply text-base sm:text-lg font-light leading-relaxed;
     color: hsl(var(--text-secondary));
   }
 
   .text-label {
-    @apply text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase;
+    @apply text-xs sm:text-sm font-medium tracking-[0.2em] uppercase;
     color: hsl(var(--text-muted));
   }
 
